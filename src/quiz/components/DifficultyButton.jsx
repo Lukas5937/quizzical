@@ -1,6 +1,5 @@
-export default function CategoryButton({
+export default function DifficultyButton({
   value,
-  img,
   label,
   isChecked,
   onChange,
@@ -10,7 +9,7 @@ export default function CategoryButton({
       <input
         type="radio"
         id={value}
-        name="category"
+        name="difficulty"
         value={value}
         checked={isChecked}
         onChange={onChange}

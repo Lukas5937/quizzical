@@ -12,7 +12,7 @@ export default function Navigation() {
           </li>
           <li>
             <NavLink to="quiz/settings" className="nav-link">
-              Start Game
+              Start Quiz
             </NavLink>
           </li>
           <li>
@@ -22,7 +22,10 @@ export default function Navigation() {
           </li>
         </ul>
       </nav>
-      <Outlet />
+
+      <main>
+        <Outlet />
+      </main>
     </>
   )
 }
