@@ -81,3 +81,8 @@ h1 {
 fieldset {
   margin: 4em 0;
 }
+
+.answers-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
