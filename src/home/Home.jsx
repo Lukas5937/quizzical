@@ -1,5 +1,11 @@
+import { useContext } from 'react'
+import { SettingsContext } from '../shared/context/SettingsContext'
 import Button from '../shared/components/Button'
+import CategoryButtons from '../shared/components/CategoryButtons'
+
 export default function Home() {
+  const { settingsData, handleChange } = useContext(SettingsContext)
+
   return (
     <header>
       <div className="home-content">
@@ -11,6 +17,12 @@ export default function Home() {
           New Quiz
         </Button>
         <Button>Watch High Scores</Button>
+        <div className="category-buttons-wrapper">
+          <CategoryButtons
+            settingsData={settingsData}
+            handleChange={handleChange}
+          />
+        </div>
       </div>
       <div className="home-images"></div>
     </header>

@@ -78,6 +78,9 @@ h1 {
   background-color: var(--main-color-accent);
 }
 
+.category-buttons-wrapper {
+}
+
 fieldset {
-  margin: 2em 0;
+  margin: 4em 0;
 }
