@@ -7,7 +7,9 @@ export default function Home() {
         <p className="home-subtitle">
           Challenge yourself and compete with others in various categories.
         </p>
-        <Button type="accent">New Quiz</Button>
+        <Button to="quiz/settings" type="accent">
+          New Quiz
+        </Button>
         <Button>Watch High Scores</Button>
       </div>
       <div className="home-images"></div>

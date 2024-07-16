@@ -6,13 +6,19 @@ export default function Navigation() {
       <nav>
         <ul className="nav-wrapper">
           <li>
-            <NavLink className="nav-link">QuizNerds</NavLink>
+            <NavLink to="/" className="nav-link">
+              QuizNerds
+            </NavLink>
           </li>
           <li>
-            <NavLink className="nav-link">Start Game</NavLink>
+            <NavLink to="quiz/settings" className="nav-link">
+              Start Game
+            </NavLink>
           </li>
           <li>
-            <NavLink className="nav-link">High Scores</NavLink>
+            <NavLink to="" className="nav-link">
+              High Scores
+            </NavLink>
           </li>
         </ul>
       </nav>
