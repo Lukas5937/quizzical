@@ -21,7 +21,7 @@ p {
   margin-top: 0;
 }
 
-.nav-wrapper {
+.nav-container {
   display: flex;
   justify-content: center;
   gap: 2em;
@@ -76,9 +76,6 @@ h1 {
 
 .accent {
   background-color: var(--main-color-accent);
-}
-
-.category-buttons-wrapper {
 }
 
 fieldset {

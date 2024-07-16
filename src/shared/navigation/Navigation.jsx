@@ -4,7 +4,7 @@ export default function Navigation() {
   return (
     <>
       <nav>
-        <ul className="nav-wrapper">
+        <ul className="nav-container">
           <li>
             <NavLink to="/" className="nav-link">
               QuizNerds

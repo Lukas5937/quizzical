@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { SettingsContext } from '../../shared/context/SettingsContext'
 import Input from '../components/Input'
 import CategoryButtons from '../../shared/components/CategoryButtons'
-import DifficultyButton from '../components/DifficultyButton'
+import DifficultyButtons from '../components/DifficultyButtons'
 import Button from '../../shared/components/Button'
 
 export default function QuizSettings() {
@@ -25,31 +25,10 @@ export default function QuizSettings() {
             settingsData={settingsData}
             handleChange={handleChange}
           />
-
-          <fieldset>
-            <legend>
-              Choose the difficulty level for your quiz questions.
-            </legend>
-
-            <DifficultyButton
-              value="easy"
-              label="Easy"
-              isChecked={settingsData.difficulty === 'easy'}
-              onChange={handleChange}
-            />
-            <DifficultyButton
-              value="medium"
-              label="Medium"
-              isChecked={settingsData.difficulty === 'medium'}
-              onChange={handleChange}
-            />
-            <DifficultyButton
-              value="hard"
-              label="Hard"
-              isChecked={settingsData.difficulty === 'hard'}
-              onChange={handleChange}
-            />
-          </fieldset>
+          <DifficultyButtons
+            settingsData={settingsData}
+            handleChange={handleChange}
+          />
           <Button to="/quiz/game" className="start-quiz-button">
             Start Quiz
           </Button>
