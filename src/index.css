@@ -24,7 +24,7 @@ p {
 .nav-container {
   display: flex;
   justify-content: center;
-  gap: 2em;
+  gap: 4em;
   width: 90%;
   margin: 0 auto;
 }

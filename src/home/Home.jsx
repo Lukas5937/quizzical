@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { SettingsContext } from '../shared/context/SettingsContext'
 import Button from '../shared/components/Button'
 import CategoryButtons from '../shared/components/CategoryButtons'
@@ -6,6 +7,13 @@ import CategoryButtons from '../shared/components/CategoryButtons'
 export default function Home() {
   const { settingsData, handleChange } = useContext(SettingsContext)
   console.log(settingsData)
+
+  const navigate = useNavigate()
+
+  function handleClick(event) {
+    handleChange(event)
+    navigate('/quiz/settings')
+  }
 
   return (
     <header>
@@ -21,7 +29,7 @@ export default function Home() {
         <div className="category-buttons-container">
           <CategoryButtons
             settingsData={settingsData}
-            handleChange={handleChange}
+            handleChange={handleClick}
           />
         </div>
       </div>
