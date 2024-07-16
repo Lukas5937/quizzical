@@ -1,25 +1,12 @@
-import { useState } from 'react'
-
+import { useContext } from 'react'
+import { SettingsContext } from '../../shared/context/SettingsContext'
 import Input from '../components/Input'
 import CategoryButton from '../../shared/components/CategoryButton'
 import DifficultyButton from '../components/DifficultyButton'
 import Button from '../../shared/components/Button'
 
 export default function QuizSettings() {
-  const [settingsData, setSettingsData] = useState({
-    userName: '',
-    category: '',
-    difficulty: '',
-  })
-
-  function handleChange(event) {
-    setSettingsData((prevData) => {
-      return {
-        ...prevData,
-        [event.target.name]: event.target.value,
-      }
-    })
-  }
+  const { settingsData, handleChange } = useContext(SettingsContext)
 
   console.log(settingsData)
 

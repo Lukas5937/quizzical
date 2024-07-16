@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import SettingsContextProvider from './shared/context/SettingsContext'
 import Navigation from './shared/navigation/Navigation'
 import Home from './home/Home'
 import './App.css'
@@ -20,7 +21,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <SettingsContextProvider>
+        <RouterProvider router={router} />
+      </SettingsContextProvider>
     </>
   )
 }
