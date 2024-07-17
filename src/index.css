@@ -85,4 +85,21 @@ fieldset {
 .answers-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
+
+.answer-button {
+  background-color: var(--main-color-dark);
+  color: #ffffff;
+  padding: 1.25em 2.5em;
+  border-radius: 6px;
+  border: none;
+}
+
+.is-correct {
+  background-color: #72a657;
+}
+
+.is-incorrect {
+  background-color: var(--main-color-accent);
 }

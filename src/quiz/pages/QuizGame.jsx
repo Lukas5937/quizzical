@@ -17,17 +17,28 @@ export default function QuizGame() {
     setQuestions(newQuestion)
   }
 
+  let styles = { backgroundColor: '#72a657' }
+
   function handleSelectAnswer(selectedAnswer) {
-    setUserAnswers((preUserAnswers) => [...preUserAnswers, selectedAnswer])
-    addAnswerToQuestions(selectedAnswer)
+    setTimeout(() => (styles = { backgroundColor: '#72a657' }), 1000)
+    setTimeout(() => {
+      setUserAnswers((preUserAnswers) => [...preUserAnswers, selectedAnswer])
+      addAnswerToQuestions(selectedAnswer)
+    }, 2000)
   }
 
   const quizIsCompleted = activeQuestionIndex === questions.length
   if (quizIsCompleted) return <h2>Quiz is completed!</h2>
 
   const answers = activeQuestion.answers.map((answer) => (
-    <li key={answer} className="answer">
-      <button onClick={() => handleSelectAnswer(answer)}>{answer}</button>
+    <li key={answer}>
+      <button
+        className="answer-button"
+        style={answer === activeQuestion.correctAnswer ? styles : null}
+        onClick={() => handleSelectAnswer(answer)}
+      >
+        {answer}
+      </button>
     </li>
   ))
 
@@ -35,7 +46,7 @@ export default function QuizGame() {
     <>
       <h2>Quiz Game</h2>
       <h3>{activeQuestion.question}</h3>
-      {answers}
+      <ul className="answers-container">{answers}</ul>
     </>
   )
 }
