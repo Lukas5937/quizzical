@@ -2,13 +2,24 @@ import { useState, useContext } from 'react'
 import { QuestionsContext } from '../../shared/context/QuestionsContext'
 
 export default function QuizGame() {
-  const { questions } = useContext(QuestionsContext)
+  const { questions, setQuestions } = useContext(QuestionsContext)
   const [userAnswers, setUserAnswers] = useState([])
+
   const activeQuestionIndex = userAnswers.length
   const activeQuestion = questions[activeQuestionIndex]
 
+  function addAnswerToQuestions(answer) {
+    const newQuestion = questions.map((question) =>
+      question === activeQuestion
+        ? { ...question, userAnswer: answer }
+        : question
+    )
+    setQuestions(newQuestion)
+  }
+
   function handleSelectAnswer(selectedAnswer) {
     setUserAnswers((preUserAnswers) => [...preUserAnswers, selectedAnswer])
+    addAnswerToQuestions(selectedAnswer)
   }
 
   const quizIsCompleted = activeQuestionIndex === questions.length

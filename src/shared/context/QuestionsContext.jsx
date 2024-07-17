@@ -27,7 +27,7 @@ export const QuestionsContext = createContext()
 export default function QuestionsContextProvider({ children }) {
   const [questions, setQuestions] = useState(DUMMY_QUESTIONS)
 
-  const value = { questions }
+  const value = { questions, setQuestions }
   return (
     <QuestionsContext.Provider value={value}>
       {children}
