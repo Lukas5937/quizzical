@@ -5,6 +5,7 @@ import Home from './home/Home'
 import './App.css'
 import QuizSettings from './quiz/pages/QuizSettings'
 import QuizGame from './quiz/pages/QuizGame'
+import QuizResults from './quiz/pages/QuizResults'
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +16,7 @@ function App() {
         { path: '', element: <Home /> },
         { path: 'quiz/settings', element: <QuizSettings /> },
         { path: 'quiz/game', element: <QuizGame /> },
+        { path: 'quiz/results', element: <QuizResults /> },
       ],
     },
   ])

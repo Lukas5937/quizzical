@@ -1,4 +1,8 @@
-export default function Question({ activeQuestion, onSelectAnswer }) {
+export default function Question({
+  activeQuestion,
+  onSelectAnswer,
+  buttonDisabled,
+}) {
   const { userAnswer, correctAnswer } = activeQuestion
 
   function setButtonColor(answer) {
@@ -16,6 +20,7 @@ export default function Question({ activeQuestion, onSelectAnswer }) {
       <button
         className={`answer-button ${setButtonColor(answer)}`}
         onClick={() => onSelectAnswer(answer)}
+        disabled={buttonDisabled}
       >
         {answer}
       </button>
