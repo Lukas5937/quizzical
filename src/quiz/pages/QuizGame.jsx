@@ -9,7 +9,8 @@ export default function QuizGame() {
   const [timer, setTimer] = useState(5)
   const [buttonDisabled, setButtonDisabled] = useState(false)
 
-  const activeQuestion = questions[activeQuestionIndex]
+  const quizIsCompleted = activeQuestionIndex === questions.length
+  const activeQuestion = !quizIsCompleted && questions[activeQuestionIndex]
 
   const addUserAnswerToQuestions = useCallback(
     (answer) => {
@@ -33,10 +34,10 @@ export default function QuizGame() {
     }, 2000)
   }
 
-  const quizIsCompleted = activeQuestionIndex === questions.length
-
   useEffect(() => {
-    if (timer === 0 && !quizIsCompleted) {
+    if (quizIsCompleted || activeQuestion.userAnswer) return
+
+    if (timer === 0) {
       addUserAnswerToQuestions('skipped')
       setActiveQuestionIndex((prevIndex) => prevIndex + 1)
       setTimer(5)
@@ -46,9 +47,7 @@ export default function QuizGame() {
       setTimer((prevTimer) => prevTimer - 1)
     }, 1000)
     return () => clearInterval(interval)
-  }, [addUserAnswerToQuestions, quizIsCompleted, timer])
-
-  console.log(questions)
+  }, [addUserAnswerToQuestions, quizIsCompleted, timer, activeQuestion])
 
   if (quizIsCompleted)
     return (
