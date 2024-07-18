@@ -5,7 +5,7 @@ export default function Question({
 }) {
   const { userAnswer, correctAnswer } = activeQuestion
 
-  function setButtonColor(answer) {
+  function setBackgroundColor(answer) {
     if (userAnswer && answer === correctAnswer) {
       return 'is-correct'
     }
@@ -18,7 +18,7 @@ export default function Question({
   const answers = activeQuestion.answers.map((answer) => (
     <li key={answer}>
       <button
-        className={`answer-button ${setButtonColor(answer)}`}
+        className={`answer-button ${setBackgroundColor(answer)}`}
         onClick={() => onSelectAnswer(answer)}
         disabled={buttonDisabled}
       >
