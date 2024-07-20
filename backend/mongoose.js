@@ -1,10 +1,4 @@
-import mongoose from 'mongoose'
 import { HighScoreData } from './models/highscore-model'
-
-mongoose
-  .connect('DUMMY_CONNECTION_STRING')
-  .then(() => console.log('Connected to database.'))
-  .catch(() => console.log('Connection to database failed.'))
 
 export const createHighScoreEntry = async (req, res, next) => {
   const highScoreEntry = new HighScoreData({
