@@ -1,5 +1,7 @@
-import { HighScoreEntry } from './models/highscore-model'
+import { HighScoreEntry } from './models/high-score-model'
 import HttpError from './models/http-error'
+
+export const getHighScoreData = async (req, res, next) => {}
 
 export const createHighScoreEntry = async (req, res, next) => {
   const createdHighScoreEntry = new HighScoreEntry({
