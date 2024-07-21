@@ -1,12 +1,8 @@
 import express from 'express'
-import {
-  createHighScoreEntry,
-  getHighScoreData,
-} from '../controllers/high-score-controller'
+import { createNewHighScore } from '../controllers/high-score-controller.js'
 
 const router = express.Router()
 
-router.get('/', getHighScoreData)
-router.post('/new', createHighScoreEntry)
+router.post('/new', createNewHighScore)
 
 export default router

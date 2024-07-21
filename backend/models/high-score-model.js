@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const highScoreEntrySchema = new Schema({
+const highScoreSchema = new Schema({
   userName: { type: String, required: true },
   correctAnswers: { type: Number, required: true },
   duration: { type: Number, required: true },
@@ -11,7 +11,4 @@ const highScoreEntrySchema = new Schema({
   date: { type: String, required: true },
 })
 
-export const HighScoreEntry = mongoose.model(
-  'highScoreEntry',
-  highScoreEntrySchema
-)
+export const HighScore = mongoose.model('highScore', highScoreSchema)

@@ -12,6 +12,8 @@ app.use('/quiz', quizRoutes)
 
 app.use('/high-scores', highScoreRoutes)
 
+// the connection string needs a password and the collection name (high-scores)
+
 mongoose
   .connect('DUMMY_CONNECTION_STRING')
   .then(() => {

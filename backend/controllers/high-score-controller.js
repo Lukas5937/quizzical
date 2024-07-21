@@ -1,10 +1,31 @@
-import { HighScoreEntry } from './models/high-score-model'
-import HttpError from './models/http-error'
+import { HighScore } from '../models/high-score-model.js'
+import HttpError from '../models/http-error.js'
 
-export const getHighScoreData = async (req, res, next) => {}
+export const createNewHighScore = async (req, res, next) => {
+  // get highScore data
 
-export const createHighScoreEntry = async (req, res, next) => {
-  const createdHighScoreEntry = new HighScoreEntry({
+  let highScores
+  try {
+    highScores = await HighScore.find()
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not find the high score data.',
+      500
+    )
+    return next(error)
+  }
+
+  if (!highScores) {
+    const error = new HttpError(
+      'Could not find high score data, please try again.',
+      404
+    )
+    return next(error)
+  }
+
+  // create new highScore
+
+  const createdHighScore = new HighScore({
     userName: req.body.userName,
     correctAnswers: req.body.correctAnswers,
     duration: req.body.duration,
@@ -12,7 +33,7 @@ export const createHighScoreEntry = async (req, res, next) => {
     difficulty: req.body.difficulty,
   })
   try {
-    await createdHighScoreEntry.save()
+    await createdHighScore.save()
   } catch (err) {
     const error = new HttpError(
       'Uploading quiz results to high scores failed, please try again.',
@@ -20,5 +41,5 @@ export const createHighScoreEntry = async (req, res, next) => {
     )
     return next(error)
   }
-  res.status(201).json(createdHighScoreEntry)
+  res.status(201).json({ newHighScore: createdHighScore })
 }
