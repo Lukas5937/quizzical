@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect, useCallback } from 'react'
+import { useState, useRef, useContext, useEffect, useCallback } from 'react'
 import { QuestionsContext } from '../../shared/context/QuestionsContext'
 import Question from '../components/Question'
 import Button from '../../shared/components/Button'
@@ -8,6 +8,7 @@ export default function QuizGame() {
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0)
   const [timer, setTimer] = useState(5)
   const [buttonDisabled, setButtonDisabled] = useState(false)
+  const gameDuration = useRef(0)
 
   const quizIsCompleted = activeQuestionIndex === questions.length
   const activeQuestion = !quizIsCompleted && questions[activeQuestionIndex]
@@ -35,6 +36,13 @@ export default function QuizGame() {
   }
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      gameDuration.current = gameDuration.current + 1
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
     if (quizIsCompleted || activeQuestion.userAnswer) return
 
     if (timer === 0) {
@@ -53,6 +61,7 @@ export default function QuizGame() {
     return (
       <>
         <h2>Quiz is completed!</h2>
+        <h3>{gameDuration.current}</h3>
         <Button to="/quiz/results">See results</Button>{' '}
       </>
     )
