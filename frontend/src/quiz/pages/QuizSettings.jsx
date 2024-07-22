@@ -1,20 +1,35 @@
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useMutation } from '@tanstack/react-query'
 import { SettingsContext } from '../../shared/context/SettingsContext'
+import { sendQuizSettingsData } from '../../shared/util/http'
 import Input from '../components/Input'
 import CategoryButtons from '../../shared/components/CategoryButtons'
 import DifficultyButtons from '../components/DifficultyButtons'
-import Button from '../../shared/components/Button'
 
 export default function QuizSettings() {
   const { settingsData, handleChange } = useContext(SettingsContext)
-
   console.log(settingsData)
+
+  const navigate = useNavigate()
+
+  const { mutate, isPending, isError, error } = useMutation({
+    mutationFn: sendQuizSettingsData,
+    onSuccess: () => {
+      navigate('/quiz/game')
+    },
+  })
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    mutate({ quizSettings: settingsData })
+  }
 
   return (
     <>
       <section>
         <h2>Quiz Settings</h2>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <Input
             name="userName"
             value={settingsData.userName}
@@ -29,10 +44,10 @@ export default function QuizSettings() {
             settingsData={settingsData}
             handleChange={handleChange}
           />
-          <Button to="/quiz/game" className="start-quiz-button">
-            Start Quiz
-          </Button>
+          <button className="start-quiz-button">Start Quiz</button>
         </form>
+        {isPending && <p>Submitting</p>}
+        {isError && <p>An error occurred. Error code: {error.code}</p>}
       </section>
     </>
   )
