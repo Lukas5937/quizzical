@@ -35,7 +35,7 @@ export default function QuizSettings() {
     onSuccess: (questions) => {
       const formattedQuestions = formatQuestions(questions)
       setQuestions(formattedQuestions)
-      // navigate('/quiz/game')
+      navigate('/quiz/game')
     },
   })
 

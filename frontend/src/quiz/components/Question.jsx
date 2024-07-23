@@ -3,7 +3,7 @@ export default function Question({
   onSelectAnswer,
   buttonDisabled,
 }) {
-  const { userAnswer, correctAnswer } = activeQuestion
+  const { userAnswer, correct_answer: correctAnswer } = activeQuestion
 
   function setBackgroundColor(answer) {
     if (userAnswer && answer === correctAnswer) {

@@ -6,6 +6,7 @@ import './App.css'
 import QuizSettings from './quiz/pages/QuizSettings'
 import QuizGame from './quiz/pages/QuizGame'
 import QuizResults from './quiz/pages/QuizResults'
+import HighScores from './highscore/pages/HighScores'
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,7 @@ function App() {
         { path: 'quiz/settings', element: <QuizSettings /> },
         { path: 'quiz/game', element: <QuizGame /> },
         { path: 'quiz/results', element: <QuizResults /> },
+        { path: 'high-scores', element: <HighScores /> },
       ],
     },
   ])
