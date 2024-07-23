@@ -20,7 +20,7 @@ export async function sendQuizSettingsData(quizSettingsData) {
     throw error
   }
 
-  const { quizData } = await response.json()
+  const { questions } = await response.json()
 
-  return quizData
+  return questions
 }

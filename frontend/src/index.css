@@ -103,3 +103,39 @@ fieldset {
 .is-incorrect {
   background-color: var(--main-color-accent);
 }
+
+.loading-spinner {
+  display: inline-block;
+  margin-top: 1rem;
+  width: 64px;
+  height: 64px;
+}
+
+.loading-spinner:after {
+  content: ' ';
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #510077;
+  border-color: var(--main-color-accent) transparent var(--main-color-accent)
+    transparent;
+  animation: loading-spinner 1.2s linear infinite;
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error-box {
+  margin: 2em 0;
+  padding: 1em;
+  background-color: #e74e3d;
+  color: #491e19;
+}

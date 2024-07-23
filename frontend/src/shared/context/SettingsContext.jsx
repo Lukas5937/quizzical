@@ -18,7 +18,7 @@ export default function SettingsContextProvider({ children }) {
     })
   }
 
-  const value = { settingsData, handleChange }
+  const value = { settingsData, setSettingsData, handleChange }
   return (
     <SettingsContext.Provider value={value}>
       {children}

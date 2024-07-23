@@ -44,9 +44,9 @@ export default function CategoryButtons({ settingsData, handleChange }) {
           onChange={handleChange}
         />
         <CategoryButton
-          value="arts"
-          label="Arts"
-          isChecked={settingsData.category === 'arts'}
+          value="art"
+          label="Art"
+          isChecked={settingsData.category === 'art'}
           onChange={handleChange}
         />
         <CategoryButton
