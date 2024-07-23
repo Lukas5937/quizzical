@@ -8,14 +8,24 @@ const PORT = 4000
 
 app.use(express.json())
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type'
+  )
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
+  next()
+})
+
 app.use('/quiz', quizRoutes)
 
 app.use('/high-scores', highScoreRoutes)
 
-// the connection string needs a password and the collection name (high-scores)
-
 mongoose
-  .connect('DUMMY_CONNECTION_STRING')
+  .connect(
+    'mongodb+srv://lukasreich:qGC9S8QMFRrBVtu9@cluster0.2fkgv2w.mongodb.net/highScores?retryWrites=true&w=majority&appName=Cluster0'
+  )
   .then(() => {
     console.log('Connected to database.')
     app.listen(PORT, (err) => {

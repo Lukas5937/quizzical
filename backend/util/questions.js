@@ -1,10 +1,11 @@
 import axios from 'axios'
 import HttpError from '../models/http-error.js'
 
-export default async function getQuestionsData() {
-  const response = await axios.get(
-    `https://opentdb.com/api.php?amount=10&type=multiple`
-  )
+export default async function getQuestionsData(category, difficulty) {
+  const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
+  console.log(url)
+
+  const response = await axios.get(url)
   const data = response.data
   if (!data) {
     const error = new HttpError(
@@ -13,5 +14,6 @@ export default async function getQuestionsData() {
     )
     throw error
   }
+
   return data.results
 }
