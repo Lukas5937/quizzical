@@ -23,14 +23,22 @@ export const createNewHighScore = async (req, res, next) => {
     return next(error)
   }
 
+  console.log(highScores)
+
   // create new highScore
 
+  console.log(req.body)
+
+  const { userName, correctAnswers, duration, category, difficulty, date } =
+    req.body
+
   const createdHighScore = new HighScore({
-    userName: req.body.userName,
-    correctAnswers: req.body.correctAnswers,
-    duration: req.body.duration,
-    category: req.body.category,
-    difficulty: req.body.difficulty,
+    userName,
+    correctAnswers,
+    duration,
+    category,
+    difficulty,
+    date,
   })
   try {
     await createdHighScore.save()

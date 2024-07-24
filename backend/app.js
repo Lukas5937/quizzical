@@ -12,9 +12,12 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(
     'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type'
+    'Origin, X-Requested-With, Content-Type, Accept'
   )
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PATCH, DELETE, OPTIONS'
+  )
   next()
 })
 
@@ -24,7 +27,7 @@ app.use('/high-scores', highScoreRoutes)
 
 mongoose
   .connect(
-    'mongodb+srv://lukasreich:qGC9S8QMFRrBVtu9@cluster0.2fkgv2w.mongodb.net/highScores?retryWrites=true&w=majority&appName=Cluster0'
+    'mongodb+srv://lukasreich:qGC9S8QMFRrBVtu9@cluster0.2fkgv2w.mongodb.net/high-scores?retryWrites=true&w=majority&appName=Cluster0'
   )
   .then(() => {
     console.log('Connected to database.')
