@@ -23,8 +23,6 @@ export const createNewHighScore = async (req, res, next) => {
     return next(error)
   }
 
-  console.log(highScores)
-
   // create new highScore
 
   console.log(req.body)
