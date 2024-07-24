@@ -5,7 +5,7 @@ import Button from '../../shared/components/Button'
 
 export default function QuizResults() {
   const { questions } = useContext(QuestionsContext)
-  const { numberOfCorrectAnswers, setNumberOfCorrectAnswers } =
+  const { gameDuration, numberOfCorrectAnswers, setNumberOfCorrectAnswers } =
     useContext(ResultsContext)
 
   setNumberOfCorrectAnswers(

@@ -1,23 +1,24 @@
 import { NavLink, Outlet } from 'react-router-dom'
 
-export default function Navigation() {
+export default function HighScoresNavigation() {
   return (
     <>
+      <h2>Difficulty</h2>
       <nav>
         <ul className="nav-container">
           <li>
-            <NavLink to="/" className="nav-link">
-              QuizNerds
+            <NavLink to="/high-scores/easy" className="nav-link">
+              Easy
             </NavLink>
           </li>
           <li>
-            <NavLink to="quiz/settings" className="nav-link">
-              Start Quiz
+            <NavLink to="/high-scores/medium" className="nav-link">
+              Medium
             </NavLink>
           </li>
           <li>
             <NavLink to="/high-scores/hard" className="nav-link">
-              High Scores
+              Hard
             </NavLink>
           </li>
         </ul>
