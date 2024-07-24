@@ -70,12 +70,14 @@ export default function HighScoresDataHard() {
       <h2>High Scores</h2>
       <table>
         <thead>
-          <th className="high-scores-table__th">User name</th>
-          <th className="high-scores-table__th">Correct answers</th>
-          <th className="high-scores-table__th">Game duration</th>
-          <th className="high-scores-table__th">Category</th>
-          <th className="high-scores-table__th">Difficulty</th>
-          <th className="high-scores-table__th">Date</th>
+          <tr>
+            <th className="high-scores-table__th">User name</th>
+            <th className="high-scores-table__th">Correct answers</th>
+            <th className="high-scores-table__th">Game duration</th>
+            <th className="high-scores-table__th">Category</th>
+            <th className="high-scores-table__th">Difficulty</th>
+            <th className="high-scores-table__th">Date</th>
+          </tr>
         </thead>
         <tbody>{tableBody}</tbody>
       </table>
