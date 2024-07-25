@@ -1,86 +1,29 @@
-import { useContext } from 'react'
-import { ResultsContext } from '../../shared/context/ResultsContext'
+import useHighScoreDataFetch from '../hooks/useHighScoreDataFetch'
+import HighScoresTable from '../components/HighScoresTable'
+import LoadingSpinner from '../../shared/components/LoadingSpinner'
+import ErrorBox from '../../shared/components/ErrorBox'
 
 export default function HighScoresDataEasy() {
-  const { gameDuration } = useContext(ResultsContext)
+  const { data, isPending, isError, error } = useHighScoreDataFetch('easy')
 
-  const DUMMY_HIGH_SCORES = [
-    {
-      id: 1,
-      userName: 'Max Mustermann',
-      correctAnswers: 7,
-      gameDuration: 54,
-      category: 'sports',
-      difficulty: 'easy',
-      date: '24/06/2024',
-    },
-    {
-      id: 2,
-      userName: 'Max Mustermann',
-      correctAnswers: 7,
-      gameDuration: 54,
-      category: 'sports',
-      difficulty: 'easy',
-      date: '24/06/2024',
-    },
-    {
-      id: 3,
-      userName: 'Max Mustermann',
-      correctAnswers: 7,
-      gameDuration: 54,
-      category: 'sports',
-      difficulty: 'easy',
-      date: '24/06/2024',
-    },
-    {
-      id: 4,
-      userName: 'Max Mustermann',
-      correctAnswers: 7,
-      gameDuration: 54,
-      category: 'sports',
-      difficulty: 'easy',
-      date: '24/06/2024',
-    },
-    {
-      id: 5,
-      userName: 'Max Mustermann',
-      correctAnswers: 7,
-      gameDuration: 54,
-      category: 'sports',
-      difficulty: 'easy',
-      date: '24/06/2024',
-    },
-  ]
+  let content
 
-  const tableBody = DUMMY_HIGH_SCORES.map((results) => {
+  if (isPending) {
+    content = <LoadingSpinner />
+  }
+
+  if (isError) {
+    content = <ErrorBox error={error} />
+  }
+
+  if (data) {
+    content = <HighScoresTable highScoreData={data} />
+
     return (
-      <tr key={results.id}>
-        <td>{results.userName}</td>
-        <td>{results.correctAnswers}</td>
-        <td>{results.gameDuration}</td>
-        <td>{results.category}</td>
-        <td>{results.difficulty}</td>
-        <td>{results.date}</td>
-      </tr>
+      <>
+        <h2>High Scores</h2>
+        {content}
+      </>
     )
-  })
-
-  return (
-    <>
-      <h2>High Scores</h2>
-      <table>
-        <thead>
-          <tr>
-            <th className="high-scores-table__th">User name</th>
-            <th className="high-scores-table__th">Correct answers</th>
-            <th className="high-scores-table__th">Game duration</th>
-            <th className="high-scores-table__th">Category</th>
-            <th className="high-scores-table__th">Difficulty</th>
-            <th className="high-scores-table__th">Date</th>
-          </tr>
-        </thead>
-        <tbody>{tableBody}</tbody>
-      </table>
-    </>
-  )
+  }
 }

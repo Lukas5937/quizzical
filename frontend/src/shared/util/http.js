@@ -41,7 +41,24 @@ export async function sendQuizResultsData(quizResultsData) {
     throw error
   }
 
-  const { newHighScore } = await response.json()
+  const { highScores } = await response.json()
 
-  return newHighScore
+  return highScores
+}
+
+export async function getHighScores({ signal, difficulty }) {
+  const url = `http://localhost:4000/high-scores?difficulty=${difficulty}`
+
+  const response = await fetch(url, { signal: signal })
+
+  if (!response.ok) {
+    const error = new Error('An error occurred fetching the high scores data.')
+    error.code = response.status
+    error.info = await response.json()
+    throw error
+  }
+
+  const { highScores } = await response.json()
+
+  return highScores
 }

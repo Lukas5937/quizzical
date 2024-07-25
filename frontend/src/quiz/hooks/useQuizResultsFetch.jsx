@@ -12,8 +12,8 @@ export default function useQuizResultsFetch() {
 
   const { mutate, isLoading, isError, error } = useMutation({
     mutationFn: sendQuizResultsData,
-    onSuccess: (newHighScore) => {
-      console.log('Mutation successful:', newHighScore)
+    onSuccess: (highScores) => {
+      console.log('Mutation successful:', highScores)
     },
   })
 

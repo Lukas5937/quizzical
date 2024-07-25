@@ -1,4 +1,4 @@
-import { createContext, useState, useRef } from 'react'
+import { createContext, useRef } from 'react'
 
 export const ResultsContext = createContext()
 
