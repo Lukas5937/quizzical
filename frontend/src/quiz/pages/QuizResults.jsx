@@ -32,8 +32,6 @@ export default function QuizResults() {
     )
   })
 
-  console.log(`isPending: ${isLoading}`)
-
   return (
     <>
       {!isError && !isLoading && (
