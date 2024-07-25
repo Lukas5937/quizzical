@@ -24,3 +24,24 @@ export async function sendQuizSettingsData(quizSettingsData) {
 
   return questions
 }
+
+export async function sendQuizResultsData(quizResultsData) {
+  const response = await fetch(`http://localhost:4000/high-scores/new`, {
+    method: 'POST',
+    body: JSON.stringify(quizResultsData),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  if (!response.ok) {
+    const error = new Error('An error occurred sending the quiz results data.')
+    error.code = response.status
+    error.info = await response.json()
+    throw error
+  }
+
+  const { newHighScore } = await response.json()
+
+  return newHighScore
+}

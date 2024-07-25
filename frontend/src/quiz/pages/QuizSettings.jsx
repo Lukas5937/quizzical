@@ -12,7 +12,7 @@ import ErrorBox from '../../shared/components/ErrorBox'
 
 export default function QuizSettings() {
   const { settingsData, handleChange } = useContext(SettingsContext)
-  const { questions, setQuestions } = useContext(QuestionsContext)
+  const { setQuestions } = useContext(QuestionsContext)
   const navigate = useNavigate()
 
   function shuffleArray(array) {
@@ -38,8 +38,6 @@ export default function QuizSettings() {
       navigate('/quiz/game')
     },
   })
-
-  console.log(questions)
 
   function handleSubmit(event) {
     event.preventDefault()

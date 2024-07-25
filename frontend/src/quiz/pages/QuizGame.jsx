@@ -41,7 +41,7 @@ export default function QuizGame() {
       gameDuration.current = gameDuration.current + 1
     }, 1000)
     return () => clearInterval(interval)
-  }, [])
+  }, [gameDuration])
 
   useEffect(() => {
     if (quizIsCompleted || activeQuestion.userAnswer) return

@@ -6,7 +6,6 @@ import CategoryButtons from '../shared/components/CategoryButtons'
 
 export default function Home() {
   const { settingsData, handleChange } = useContext(SettingsContext)
-  console.log(settingsData)
 
   const navigate = useNavigate()
 
