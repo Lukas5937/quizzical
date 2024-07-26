@@ -10,15 +10,17 @@ export default function SettingsContextProvider({ children }) {
   })
 
   function handleChange(event) {
-    setSettingsData((prevData) => {
-      return {
-        ...prevData,
-        [event.target.name]: event.target.value,
-      }
-    })
+    setSettingsData((prevData) => ({
+      ...prevData,
+      [event.target.name]: event.target.value.replace(/\s/g, ''),
+    }))
   }
 
-  const value = { settingsData, setSettingsData, handleChange }
+  const value = {
+    settingsData,
+    setSettingsData,
+    handleChange,
+  }
   return (
     <SettingsContext.Provider value={value}>
       {children}

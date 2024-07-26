@@ -8,6 +8,8 @@ export default function Input({ name, value, label, onChange }) {
         name={name}
         value={value}
         onChange={onChange}
+        minLength="3"
+        required
       />
     </>
   )

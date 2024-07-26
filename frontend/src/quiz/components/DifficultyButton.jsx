@@ -13,6 +13,7 @@ export default function DifficultyButton({
         value={value}
         checked={isChecked}
         onChange={onChange}
+        required
       />
       <label htmlFor={value}>{label}</label>
     </>

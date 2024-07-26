@@ -41,7 +41,7 @@ export default function QuizSettings() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    mutate({ quizSettings: settingsData })
+    mutate(settingsData)
   }
 
   return (
