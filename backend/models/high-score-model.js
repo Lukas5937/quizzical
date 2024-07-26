@@ -11,4 +11,9 @@ const highScoreSchema = new Schema({
   date: { type: String, required: true },
 })
 
-export const HighScore = mongoose.model('highScore', highScoreSchema)
+export const EasyHighScore = mongoose.model('easyHighScore', highScoreSchema)
+export const MediumHighScore = mongoose.model(
+  'mediumHighScore',
+  highScoreSchema
+)
+export const HardHighScore = mongoose.model('hardHighScore', highScoreSchema)

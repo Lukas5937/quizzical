@@ -1,10 +1,23 @@
+import { validationResult } from 'express-validator'
+import HttpError from '../models/http-error.js'
 import getQuestionsData from '../util/questions.js'
 
 export const getQuestions = async (req, res, next) => {
-  const difficulty = req.body.quizSettings.difficulty
+  console.log(req.body)
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    console.log(errors)
+    const error = new HttpError(
+      'Invalid inputs passed, please check your data',
+      422
+    )
+    return next(error)
+  }
+
+  const difficulty = req.body.difficulty
   let category
 
-  switch (req.body.quizSettings.category) {
+  switch (req.body.category) {
     case 'general-knowledge':
       category = '9'
       break
@@ -39,6 +52,5 @@ export const getQuestions = async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-  console.log(questions)
   res.status(201).json({ questions })
 }

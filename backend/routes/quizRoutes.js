@@ -1,8 +1,17 @@
 import express from 'express'
+import { check } from 'express-validator'
 import { getQuestions } from '../controllers/quiz-controller.js'
 
 const router = express.Router()
 
-router.post('/questions', getQuestions)
+router.post(
+  '/questions',
+  [
+    check('userName').isLength({ min: 3 }),
+    check('category').not().isEmpty(),
+    check('difficulty').not().isEmpty(),
+  ],
+  getQuestions
+)
 
 export default router

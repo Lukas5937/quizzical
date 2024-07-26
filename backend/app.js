@@ -1,5 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import HttpError from './models/http-error.js'
 import quizRoutes from './routes/quizRoutes.js'
 import highScoreRoutes from './routes/highScoreRoutes.js'
 
@@ -22,8 +23,20 @@ app.use((req, res, next) => {
 })
 
 app.use('/quiz', quizRoutes)
-
 app.use('/high-scores', highScoreRoutes)
+
+app.use((req, res, next) => {
+  const error = new HttpError('Could not find this route.', 404)
+  throw error
+})
+
+app.use((error, req, res, next) => {
+  if (res.headerSent) {
+    return next(error)
+  }
+  res.status(error.code || 500)
+  res.json({ message: error.message || 'An unknown error occurred.' })
+})
 
 mongoose
   .connect(
