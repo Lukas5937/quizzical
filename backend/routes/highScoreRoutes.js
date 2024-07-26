@@ -1,4 +1,5 @@
 import express from 'express'
+import { check } from 'express-validator'
 import {
   createNewHighScore,
   getHighScores,
@@ -6,7 +7,18 @@ import {
 
 const router = express.Router()
 
-router.post('/new', createNewHighScore)
+router.post(
+  '/new',
+  [
+    check('userName').not().isEmpty(),
+    check('correctAnswers').not().isEmpty(),
+    check('duration').not().isEmpty(),
+    check('category').not().isEmpty(),
+    check('difficulty').not().isEmpty(),
+    check('date').not().isEmpty(),
+  ],
+  createNewHighScore
+)
 
 router.get('/', getHighScores)
 

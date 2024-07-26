@@ -1,3 +1,4 @@
+import { validationResult } from 'express-validator'
 import {
   EasyHighScore,
   MediumHighScore,
@@ -6,6 +7,16 @@ import {
 import HttpError from '../models/http-error.js'
 
 export const createNewHighScore = async (req, res, next) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    console.log(errors)
+    const error = new HttpError(
+      'Invalid quiz results data passed, please try again.',
+      422
+    )
+    return next(error)
+  }
+
   const { userName, correctAnswers, duration, category, difficulty, date } =
     req.body
 
