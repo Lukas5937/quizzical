@@ -1,3 +1,4 @@
+import he from 'he'
 export default function Question({
   activeQuestion,
   onSelectAnswer,
@@ -18,17 +19,17 @@ export default function Question({
   const answers = activeQuestion.answers.map((answer) => (
     <li key={answer}>
       <button
-        className={`button ${setBackgroundColor(answer)}`}
+        className={`answer-button ${setBackgroundColor(answer)}`}
         onClick={() => onSelectAnswer(answer)}
         disabled={buttonDisabled}
       >
-        {answer}
+        {he.decode(answer)}
       </button>
     </li>
   ))
   return (
     <>
-      <h3>{activeQuestion.question}</h3>
+      <h3>{he.decode(activeQuestion.question)}</h3>
       <ul className="answers-container">{answers}</ul>
     </>
   )
