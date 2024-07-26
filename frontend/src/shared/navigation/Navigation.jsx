@@ -6,17 +6,32 @@ export default function Navigation() {
       <nav>
         <ul className="nav-container">
           <li>
-            <NavLink to="/" className="nav-link">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
               QuizNerds
             </NavLink>
           </li>
           <li>
-            <NavLink to="quiz/settings" className="nav-link">
+            <NavLink
+              to="quiz/settings"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
               Start Quiz
             </NavLink>
           </li>
           <li>
-            <NavLink to="/high-scores/hard" className="nav-link">
+            <NavLink
+              to="/high-scores/hard"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
               High Scores
             </NavLink>
           </li>

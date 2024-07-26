@@ -7,17 +7,32 @@ export default function HighScoresNavigation() {
       <nav>
         <ul className="nav-container">
           <li>
-            <NavLink to="/high-scores/easy" className="nav-link">
+            <NavLink
+              to="/high-scores/easy"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
               Easy
             </NavLink>
           </li>
           <li>
-            <NavLink to="/high-scores/medium" className="nav-link">
+            <NavLink
+              to="/high-scores/medium"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
               Medium
             </NavLink>
           </li>
           <li>
-            <NavLink to="/high-scores/hard" className="nav-link">
+            <NavLink
+              to="/high-scores/hard"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
               Hard
             </NavLink>
           </li>

@@ -4,7 +4,6 @@ export const ResultsContext = createContext()
 
 export default function ResultsContextProvider({ children }) {
   const gameDuration = useRef(0)
-  // const [numberOfCorrectAnswers, setNumberOfCorrectAnswers] = useState(0)
   const numberOfCorrectAnswers = useRef(0)
 
   const value = {

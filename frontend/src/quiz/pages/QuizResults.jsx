@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { SettingsContext } from '../../shared/context/SettingsContext'
 import { QuestionsContext } from '../../shared/context/QuestionsContext'
 import { ResultsContext } from '../../shared/context/ResultsContext'
 import useQuizResultsFetch from '../hooks/useQuizResultsFetch'
@@ -7,6 +8,7 @@ import LoadingSpinner from '../../shared/components/LoadingSpinner'
 import ErrorBox from '../../shared/components/ErrorBox'
 
 export default function QuizResults() {
+  const { settingsData } = useContext(SettingsContext)
   const { questions } = useContext(QuestionsContext)
   const { numberOfCorrectAnswers } = useContext(ResultsContext)
 
@@ -41,7 +43,7 @@ export default function QuizResults() {
             {numberOfCorrectAnswers.current}/{questions.length} correct answers
           </h3>
           <ul>{results}</ul>
-          <Button to="/high-scores" type="accent">
+          <Button to={`/high-scores/${settingsData.difficulty}`} type="accent">
             Watch High Scores
           </Button>
         </>

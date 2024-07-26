@@ -37,11 +37,13 @@ export default function QuizGame() {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      gameDuration.current = gameDuration.current + 1
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [gameDuration])
+    if (!quizIsCompleted) {
+      const interval = setInterval(() => {
+        gameDuration.current = gameDuration.current + 1
+      }, 1000)
+      return () => clearInterval(interval)
+    }
+  }, [quizIsCompleted, gameDuration])
 
   useEffect(() => {
     if (quizIsCompleted || activeQuestion.userAnswer) return

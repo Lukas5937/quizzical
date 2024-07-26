@@ -66,6 +66,18 @@ h1 {
   margin: 2em 0 3em;
 }
 
+.nav-link {
+  color: var(--main-font-color);
+}
+
+.nav-link:hover {
+  color: var(--main-color-accent);
+}
+
+.active {
+  color: var(--main-color-dark);
+}
+
 .link {
   color: #ffffff;
   background-color: var(--main-color-dark);
