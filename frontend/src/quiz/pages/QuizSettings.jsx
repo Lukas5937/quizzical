@@ -64,7 +64,7 @@ export default function QuizSettings() {
               settingsData={settingsData}
               handleChange={handleChange}
             />
-            <button className="start-quiz-button">Start Quiz</button>
+            <button className="button accent">Start Quiz</button>
           </form>
           {isPending && <LoadingSpinner />}
         </>

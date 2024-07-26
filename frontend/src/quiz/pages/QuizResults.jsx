@@ -1,9 +1,9 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { SettingsContext } from '../../shared/context/SettingsContext'
 import { QuestionsContext } from '../../shared/context/QuestionsContext'
 import { ResultsContext } from '../../shared/context/ResultsContext'
 import useQuizResultsFetch from '../hooks/useQuizResultsFetch'
-import Button from '../../shared/components/Button'
 import LoadingSpinner from '../../shared/components/LoadingSpinner'
 import ErrorBox from '../../shared/components/ErrorBox'
 
@@ -43,9 +43,12 @@ export default function QuizResults() {
             {numberOfCorrectAnswers.current}/{questions.length} correct answers
           </h3>
           <ul>{results}</ul>
-          <Button to={`/high-scores/${settingsData.difficulty}`} type="accent">
+          <Link
+            to={`/high-scores/${settingsData.difficulty}`}
+            className="button accent"
+          >
             Watch High Scores
-          </Button>
+          </Link>
         </>
       )}
       {isLoading && <LoadingSpinner />}

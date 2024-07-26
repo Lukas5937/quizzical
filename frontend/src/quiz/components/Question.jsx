@@ -18,7 +18,7 @@ export default function Question({
   const answers = activeQuestion.answers.map((answer) => (
     <li key={answer}>
       <button
-        className={`answer-button ${setBackgroundColor(answer)}`}
+        className={`button ${setBackgroundColor(answer)}`}
         onClick={() => onSelectAnswer(answer)}
         disabled={buttonDisabled}
       >

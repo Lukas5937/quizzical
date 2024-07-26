@@ -1,7 +1,6 @@
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { SettingsContext } from '../shared/context/SettingsContext'
-import Button from '../shared/components/Button'
 import CategoryButtons from '../shared/components/CategoryButtons'
 
 export default function Home() {
@@ -21,10 +20,12 @@ export default function Home() {
         <p className="home-subtitle">
           Challenge yourself and compete with others in various categories.
         </p>
-        <Button to="quiz/settings" type="accent">
+        <Link to="quiz/settings" className="button accent">
           New Quiz
-        </Button>
-        <Button>Watch High Scores</Button>
+        </Link>
+        <Link to="high-scores/hard" className="button">
+          Watch High Scores
+        </Link>
         <div className="category-buttons-container">
           <CategoryButtons
             settingsData={settingsData}

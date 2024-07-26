@@ -3,7 +3,9 @@
   --main-bg-color: #d6eefa;
   --main-font-color: #272835;
   --main-color-dark: #09577d;
+  --main-color-dark-hover: #0c6897;
   --main-color-accent: #ff6555;
+  --main-color-accent-hover: #ff7262;
 }
 
 body {
@@ -71,23 +73,33 @@ h1 {
 }
 
 .nav-link:hover {
-  color: var(--main-color-accent);
+  color: var(--main-color-accent-hover);
 }
 
 .active {
   color: var(--main-color-dark);
 }
 
-.link {
+.button {
   color: #ffffff;
   background-color: var(--main-color-dark);
   padding: 1.25em 2.5em;
   margin-right: 2em;
   border-radius: 6px;
+  border: none;
+}
+
+.button:hover {
+  background-color: var(--main-color-dark-hover);
+  cursor: pointer;
 }
 
 .accent {
   background-color: var(--main-color-accent);
+}
+
+.accent:hover {
+  background-color: var(--main-color-accent-hover);
 }
 
 fieldset {
@@ -98,14 +110,6 @@ fieldset {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1em;
-}
-
-.answer-button {
-  background-color: var(--main-color-dark);
-  color: #ffffff;
-  padding: 1.25em 2.5em;
-  border-radius: 6px;
-  border: none;
 }
 
 .is-correct {

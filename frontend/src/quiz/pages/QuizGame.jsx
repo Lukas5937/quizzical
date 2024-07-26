@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { QuestionsContext } from '../../shared/context/QuestionsContext'
 import { ResultsContext } from '../../shared/context/ResultsContext'
 import Question from '../components/Question'
-import Button from '../../shared/components/Button'
 
 export default function QuizGame() {
   const { questions, setQuestions } = useContext(QuestionsContext)
@@ -65,7 +65,9 @@ export default function QuizGame() {
       <>
         <h2>Quiz is completed!</h2>
         <h3>{gameDuration.current}</h3>
-        <Button to="/quiz/results">See results</Button>{' '}
+        <Link to="/quiz/results" className="button accent">
+          See results
+        </Link>{' '}
       </>
     )
 
