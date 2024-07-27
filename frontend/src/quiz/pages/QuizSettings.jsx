@@ -11,7 +11,8 @@ import LoadingSpinner from '../../shared/components/LoadingSpinner'
 import ErrorBox from '../../shared/components/ErrorBox'
 
 export default function QuizSettings() {
-  const { settingsData, handleChange } = useContext(SettingsContext)
+  const { settingsData, setSettingsData, handleChange } =
+    useContext(SettingsContext)
   const { setQuestions } = useContext(QuestionsContext)
   const navigate = useNavigate()
 
@@ -35,6 +36,11 @@ export default function QuizSettings() {
     onSuccess: (questions) => {
       const formattedQuestions = formatQuestions(questions)
       setQuestions(formattedQuestions)
+      setSettingsData({
+        userName: '',
+        category: '',
+        difficulty: '',
+      })
       navigate('/quiz/game')
     },
   })
