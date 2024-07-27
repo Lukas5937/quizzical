@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { QuestionsContext } from '../../shared/context/QuestionsContext'
 import { ResultsContext } from '../../shared/context/ResultsContext'
 import Question from '../components/Question'
@@ -10,6 +10,7 @@ export default function QuizGame() {
   const [timer, setTimer] = useState(5)
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const { gameDuration } = useContext(ResultsContext)
+  const navigate = useNavigate()
 
   const quizIsCompleted = activeQuestionIndex === questions.length
   const activeQuestion = !quizIsCompleted && questions[activeQuestionIndex]
@@ -60,16 +61,14 @@ export default function QuizGame() {
     return () => clearInterval(interval)
   }, [handleSelectAnswer, quizIsCompleted, timer, activeQuestion])
 
-  if (quizIsCompleted)
+  if (quizIsCompleted) {
+    setTimeout(() => navigate('/quiz/results'), 2000)
     return (
       <>
-        <h2>Quiz is completed!</h2>
-        <h3>{gameDuration.current}</h3>
-        <Link to="/quiz/results" className="button accent">
-          See results
-        </Link>{' '}
+        <h2>You completed the Quiz!</h2>
       </>
     )
+  }
 
   return (
     <>

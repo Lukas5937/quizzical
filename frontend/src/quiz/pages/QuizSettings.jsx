@@ -16,15 +16,15 @@ export default function QuizSettings() {
   const { setQuestions } = useContext(QuestionsContext)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (settingsData.userName || setSettingsData.difficulty) {
-      setSettingsData({
-        userName: '',
-        category: '',
-        difficulty: '',
-      })
-    }
-  }, [settingsData, setSettingsData])
+  // useEffect(() => {
+  //   if (settingsData.userName || setSettingsData.difficulty) {
+  //     setSettingsData({
+  //       userName: '',
+  //       category: '',
+  //       difficulty: '',
+  //     })
+  //   }
+  // }, [settingsData, setSettingsData])
 
   function shuffleArray(array) {
     return array.sort(() => 0.5 - Math.random())
