@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { QuestionsContext } from '../../shared/context/QuestionsContext'
 import { ResultsContext } from '../../shared/context/ResultsContext'
 import useQuizResultsFetch from '../hooks/useQuizResultsFetch'
+import useQuizSettingsFetch from '../hooks/useQuizSettingsFetch'
 import LoadingSpinner from '../../shared/components/LoadingSpinner'
 import ErrorBox from '../../shared/components/ErrorBox'
 
@@ -14,7 +15,17 @@ export default function QuizResults() {
     (question) => question['correct_answer'] === question.userAnswer
   ).length
 
-  const { isLoading, isError, error } = useQuizResultsFetch()
+  const {
+    isLoading: isLoadingResults,
+    isError: isErrorResults,
+    error: errorResults,
+  } = useQuizResultsFetch()
+  const {
+    handleSubmit: handleSubmitSettings,
+    isPending: isPendingSettings,
+    isError: isErrorSettings,
+    error: errorSettings,
+  } = useQuizSettingsFetch()
 
   const results = questions.map((question) => {
     return (
@@ -34,15 +45,15 @@ export default function QuizResults() {
 
   return (
     <>
-      {!isError && !isLoading && (
+      {!isErrorResults && !isErrorSettings && !isLoadingResults && (
         <>
           <h2>Your results:</h2>
           <h3>
             {numberOfCorrectAnswers.current}/{questions.length} correct answers
           </h3>
           <ul>{results}</ul>
-          <Link to={'/quiz/game'} className="button accent">
-            Play again
+          <Link onClick={handleSubmitSettings} className="button accent">
+            {isPendingSettings ? <LoadingSpinner /> : 'Play again'}
           </Link>
           <Link to={'/quiz/settings'} className="button">
             Change Quiz Settings
@@ -55,8 +66,9 @@ export default function QuizResults() {
           </Link>
         </>
       )}
-      {isLoading && <LoadingSpinner />}
-      {isError && <ErrorBox error={error} />}
+      {isLoadingResults && <LoadingSpinner />}
+      {isErrorResults && <ErrorBox error={errorResults} />}
+      {isErrorSettings && <ErrorBox error={errorSettings} />}
     </>
   )
 }
