@@ -1,12 +1,20 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { SettingsContext } from '../shared/context/SettingsContext'
 import CategoryButtons from '../shared/components/CategoryButtons'
 
 export default function Home() {
-  const { settingsData, handleChange } = useContext(SettingsContext)
-
+  const { settingsData, handleChange, setSettingsData } =
+    useContext(SettingsContext)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setSettingsData({
+      userName: '',
+      category: '',
+      difficulty: '',
+    })
+  }, [setSettingsData])
 
   function handleClick(event) {
     handleChange(event)
