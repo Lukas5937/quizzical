@@ -1,10 +1,20 @@
 import { validationResult } from 'express-validator'
 import {
-  EasyHighScore,
-  MediumHighScore,
-  HardHighScore,
-} from '../models/high-score-model.js'
+  getHighScoresCollection,
+  fetchHighScoresData,
+} from '../util/fetchHighScoresData.js'
 import HttpError from '../models/http-error.js'
+
+async function sortedFetching(collection) {
+  return await collection.find().sort({
+    correctAnswers: -1,
+    duration: 1,
+  })
+}
+
+async function unsortedFetching(collection) {
+  return await collection.find()
+}
 
 export const createNewHighScore = async (req, res, next) => {
   const errors = validationResult(req)
@@ -20,39 +30,12 @@ export const createNewHighScore = async (req, res, next) => {
   const { userName, correctAnswers, duration, category, difficulty, date } =
     req.body
 
-  let HighScoreCollection
-  if (difficulty === 'easy') {
-    HighScoreCollection = EasyHighScore
-  }
-  if (difficulty === 'medium') {
-    HighScoreCollection = MediumHighScore
-  }
-  if (difficulty === 'hard') {
-    HighScoreCollection = HardHighScore
-  }
+  const HighScoreCollection = getHighScoresCollection(difficulty)
 
-  let highScores
-
-  try {
-    highScores = await HighScoreCollection.find().sort({
-      correctAnswers: -1,
-      duration: 1,
-    })
-  } catch (err) {
-    const error = new HttpError(
-      'Something went wrong, could not find the high score data.',
-      500
-    )
-    return next(error)
-  }
-
-  if (!highScores) {
-    const error = new HttpError(
-      'Could not find high score data, please try again.',
-      404
-    )
-    return next(error)
-  }
+  const highScores = await fetchHighScoresData(
+    HighScoreCollection,
+    sortedFetching
+  )
 
   function checkIsHighScore(highScores, correctAnswers, duration) {
     const isShortList = highScores.length < 10
@@ -121,31 +104,11 @@ export const createNewHighScore = async (req, res, next) => {
 export const getHighScores = async (req, res, next) => {
   const { difficulty } = req.query
 
-  let HighScoreCollection
-  if (difficulty === 'easy') {
-    HighScoreCollection = EasyHighScore
-  }
-  if (difficulty === 'medium') {
-    HighScoreCollection = MediumHighScore
-  }
-  if (difficulty === 'hard') {
-    HighScoreCollection = HardHighScore
-  }
-
-  let highScores
-
-  try {
-    highScores = await HighScoreCollection.find().sort({
-      correctAnswers: -1,
-      duration: 1,
-    })
-  } catch (err) {
-    const error = new HttpError(
-      'Something went wrong, could not find the high score data.',
-      500
-    )
-    return next(error)
-  }
+  const HighScoreCollection = getHighScoresCollection(difficulty)
+  const highScores = await fetchHighScoresData(
+    HighScoreCollection,
+    unsortedFetching
+  )
 
   res.status(200).json({ highScores })
 }

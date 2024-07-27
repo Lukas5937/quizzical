@@ -1,6 +1,6 @@
 import { validationResult } from 'express-validator'
 import HttpError from '../models/http-error.js'
-import getQuestionsData from '../util/questions.js'
+import fetchQuestionsData from '../util/fetchQuestionsData.js'
 
 export const getQuestions = async (req, res, next) => {
   const errors = validationResult(req)
@@ -47,7 +47,7 @@ export const getQuestions = async (req, res, next) => {
 
   let questions
   try {
-    questions = await getQuestionsData(category, difficulty)
+    questions = await fetchQuestionsData(category, difficulty)
   } catch (error) {
     return next(error)
   }
