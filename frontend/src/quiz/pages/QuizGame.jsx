@@ -16,25 +16,28 @@ export default function QuizGame() {
 
   const addUserAnswerToQuestions = useCallback(
     (answer) => {
-      const newQuestion = questions.map((question) =>
+      const newQuestions = questions.map((question) =>
         question === activeQuestion
           ? { ...question, userAnswer: answer }
           : question
       )
-      setQuestions(newQuestion)
+      setQuestions(newQuestions)
     },
     [questions, activeQuestion, setQuestions]
   )
 
-  function handleSelectAnswer(selectedAnswer) {
-    setButtonDisabled(true)
-    addUserAnswerToQuestions(selectedAnswer)
-    setTimeout(() => {
-      setActiveQuestionIndex((prevIndex) => prevIndex + 1)
-      setButtonDisabled(false)
-      setTimer(5)
-    }, 2000)
-  }
+  const handleSelectAnswer = useCallback(
+    (selectedAnswer) => {
+      setButtonDisabled(true)
+      addUserAnswerToQuestions(selectedAnswer)
+      setTimeout(() => {
+        setActiveQuestionIndex((prevIndex) => prevIndex + 1)
+        setButtonDisabled(false)
+        setTimer(5)
+      }, 2000)
+    },
+    [addUserAnswerToQuestions]
+  )
 
   useEffect(() => {
     if (!quizIsCompleted) {
@@ -49,16 +52,13 @@ export default function QuizGame() {
     if (quizIsCompleted || activeQuestion.userAnswer) return
 
     if (timer === 0) {
-      addUserAnswerToQuestions('No answer selected')
-      setActiveQuestionIndex((prevIndex) => prevIndex + 1)
-      setTimer(5)
-      return
+      handleSelectAnswer('No answer selected')
     }
     const interval = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1)
     }, 1000)
     return () => clearInterval(interval)
-  }, [addUserAnswerToQuestions, quizIsCompleted, timer, activeQuestion])
+  }, [handleSelectAnswer, quizIsCompleted, timer, activeQuestion])
 
   if (quizIsCompleted)
     return (

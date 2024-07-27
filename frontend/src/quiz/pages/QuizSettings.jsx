@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import { SettingsContext } from '../../shared/context/SettingsContext'
@@ -15,6 +15,16 @@ export default function QuizSettings() {
     useContext(SettingsContext)
   const { setQuestions } = useContext(QuestionsContext)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (settingsData.userName || setSettingsData.difficulty) {
+      setSettingsData({
+        userName: '',
+        category: '',
+        difficulty: '',
+      })
+    }
+  }, [settingsData, setSettingsData])
 
   function shuffleArray(array) {
     return array.sort((a, b) => 0.5 - Math.random())
@@ -36,11 +46,6 @@ export default function QuizSettings() {
     onSuccess: (questions) => {
       const formattedQuestions = formatQuestions(questions)
       setQuestions(formattedQuestions)
-      setSettingsData({
-        userName: '',
-        category: '',
-        difficulty: '',
-      })
       navigate('/quiz/game')
     },
   })
