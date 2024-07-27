@@ -62,7 +62,7 @@ export default function QuizGame() {
   }, [handleSelectAnswer, quizIsCompleted, timer, activeQuestion])
 
   if (quizIsCompleted) {
-    setTimeout(() => navigate('/quiz/results'), 2000)
+    setTimeout(() => navigate('/quiz/results'), 1500)
     return (
       <>
         <h2>You completed the Quiz!</h2>

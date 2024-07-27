@@ -41,9 +41,15 @@ export default function QuizResults() {
             {numberOfCorrectAnswers.current}/{questions.length} correct answers
           </h3>
           <ul>{results}</ul>
+          <Link to={'/quiz/game'} className="button accent">
+            Play again
+          </Link>
+          <Link to={'/quiz/settings'} className="button">
+            Change Quiz Settings
+          </Link>
           <Link
             to={`/high-scores/${questions[0].difficulty}`}
-            className="button accent"
+            className="button"
           >
             Watch High Scores
           </Link>
