@@ -20,12 +20,12 @@ export default function QuizSettings() {
   useEffect(() => {
     if (initialRender.current) {
       initialRender.current = false
-      const noReset =
+      const initialResetNeeded =
         settingsData.category &&
         !settingsData.userName &&
         !settingsData.difficulty
 
-      if (!noReset) {
+      if (!initialResetNeeded) {
         setSettingsData({
           userName: '',
           category: '',
