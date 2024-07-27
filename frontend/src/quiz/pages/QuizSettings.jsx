@@ -27,7 +27,7 @@ export default function QuizSettings() {
   }, [settingsData, setSettingsData])
 
   function shuffleArray(array) {
-    return array.sort((a, b) => 0.5 - Math.random())
+    return array.sort(() => 0.5 - Math.random())
   }
 
   function formatQuestions(questions) {

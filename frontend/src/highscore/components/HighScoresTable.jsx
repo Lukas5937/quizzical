@@ -16,12 +16,24 @@ export default function HighScoresTable({ highScoreData }) {
     <table>
       <thead>
         <tr>
-          <th className="high-scores-table__th">User name</th>
-          <th className="high-scores-table__th">Correct answers</th>
-          <th className="high-scores-table__th">Game duration</th>
-          <th className="high-scores-table__th">Category</th>
-          <th className="high-scores-table__th">Difficulty</th>
-          <th className="high-scores-table__th">Date</th>
+          <th className="high-scores-table__th" scope="col">
+            User name
+          </th>
+          <th className="high-scores-table__th" scope="col">
+            Correct answers
+          </th>
+          <th className="high-scores-table__th" scope="col">
+            Game duration
+          </th>
+          <th className="high-scores-table__th" scope="col">
+            Category
+          </th>
+          <th className="high-scores-table__th" scope="col">
+            Difficulty
+          </th>
+          <th className="high-scores-table__th" scope="col">
+            Date
+          </th>
         </tr>
       </thead>
       <tbody>{tableBody}</tbody>
