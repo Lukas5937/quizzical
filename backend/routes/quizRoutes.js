@@ -1,6 +1,6 @@
 import express from 'express'
 import { check } from 'express-validator'
-import { getQuestions } from '../controllers/quiz-controller.js'
+import { getQuestions } from '../controllers/quizController.js'
 
 const router = express.Router()
 

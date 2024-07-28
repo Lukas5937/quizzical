@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import HttpError from './models/http-error.js'
 import quizRoutes from './routes/quizRoutes.js'
-import highScoreRoutes from './routes/highScoreRoutes.js'
+import highScoresRoutes from './routes/highScoresRoutes.js'
 
 const app = express()
 const PORT = 4000
@@ -22,12 +22,12 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/quiz', quizRoutes)
-app.use('/high-scores', highScoreRoutes)
+app.use('/api/v1/quiz', quizRoutes)
+app.use('/api/v1/high-scores', highScoresRoutes)
 
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404)
-  throw error
+  return next(error)
 })
 
 app.use((error, req, res, next) => {
