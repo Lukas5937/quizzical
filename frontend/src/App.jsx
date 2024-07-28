@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import ContextProviders from './context/ContextProviders.jsx'
 import Navigation from './Navigation.jsx'
 import Home from './Home.jsx'
@@ -30,6 +30,7 @@ function App() {
             { path: 'hard', element: <HighScoresDataHard /> },
           ],
         },
+        { path: '*', element: <Navigate to="/" replace /> },
       ],
     },
   ])
