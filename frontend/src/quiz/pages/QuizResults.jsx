@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import he from 'he'
 import { QuestionsContext } from '../../context/QuestionsContext'
 import { ResultsContext } from '../../context/ResultsContext'
 import useQuizResultsFetch from '../hooks/useQuizResultsFetch'
@@ -30,13 +31,13 @@ export default function QuizResults() {
   const results = questions.map((question) => {
     return (
       <li key={question.question}>
-        <h3>{question.question}</h3>
+        <h3>{he.decode(question.question)}</h3>
         {question.userAnswer === question['correct_answer'] ? (
-          <p>Your answer: {question.userAnswer} ✅</p>
+          <p>Your answer: {he.decode(question.userAnswer)} ✅</p>
         ) : (
           <>
-            <p>Your answer: {question.userAnswer} ❌</p>
-            <p>Correct answer: {question['correct_answer']}</p>
+            <p>Your answer: {he.decode(question.userAnswer)} ❌</p>
+            <p>Correct answer: {he.decode(question['correct_answer'])}</p>
           </>
         )}
       </li>
