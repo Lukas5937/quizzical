@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { SettingsContext } from '../shared/context/SettingsContext'
-import CategoryButtons from '../shared/components/CategoryButtons'
+import { SettingsContext } from './context/SettingsContext'
+import CategoryButtons from './UI/CategoryButtons'
 
 export default function Home() {
   const { settingsData, handleChange, setSettingsData } =

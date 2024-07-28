@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getHighScores } from '../../shared/util/http'
+import { getHighScores } from '../../util/http'
 
 export default function useHighScoreDataFetch(difficulty) {
   const { data, isPending, isError, error } = useQuery({

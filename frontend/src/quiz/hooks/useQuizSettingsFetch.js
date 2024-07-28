@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
-import { QuestionsContext } from '../../shared/context/QuestionsContext'
-import { SettingsContext } from '../../shared/context/SettingsContext'
-import { sendQuizSettingsData } from '../../shared/util/http'
+import { QuestionsContext } from '../../context/QuestionsContext'
+import { SettingsContext } from '../../context/SettingsContext'
+import { sendQuizSettingsData } from '../../util/http'
 
 export default function useQuizSettingsFetch() {
   const { settingsData } = useContext(SettingsContext)

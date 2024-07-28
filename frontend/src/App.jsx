@@ -1,15 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ContextProviders from './shared/context/ContextProviders'
-import Navigation from './shared/navigation/Navigation'
-import Home from './home/Home'
+import ContextProviders from './context/ContextProviders.jsx'
+import Navigation from './Navigation.jsx'
+import Home from './Home.jsx'
 import './App.css'
 import QuizSettings from './quiz/pages/QuizSettings'
 import QuizGame from './quiz/pages/QuizGame'
 import QuizResults from './quiz/pages/QuizResults'
-import HighScoresNavigation from './highscore/components/HighScoresNavigation'
-import HighScoresDataEasy from './highscore/pages/HighScoresDataEasy.jsx'
-import HighScoresDataMedium from './highscore/pages/HighScoresDataMedium.jsx'
-import HighScoresDataHard from './highscore/pages/HighScoresDataHard.jsx'
+import HighScoresNavigation from './highscores/components/HighScoresNavigation.jsx'
+import HighScoresDataEasy from './highscores/pages/HighScoresDataEasy.jsx'
+import HighScoresDataMedium from './highscores/pages/HighScoresDataMedium.jsx'
+import HighScoresDataHard from './highscores/pages/HighScoresDataHard.jsx'
 
 function App() {
   const router = createBrowserRouter([

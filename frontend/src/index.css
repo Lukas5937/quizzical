@@ -88,6 +88,9 @@ h1 {
   margin-right: 2em;
   border-radius: 6px;
   border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button:hover,
@@ -128,8 +131,8 @@ fieldset {
 .loading-spinner {
   display: inline-block;
   margin-top: 1rem;
-  width: 64px;
-  height: 64px;
+  width: 24px;
+  height: 24px;
 }
 
 .loading-spinner:after {

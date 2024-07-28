@@ -1,10 +1,10 @@
 import { useContext, useEffect, useRef } from 'react'
-import { SettingsContext } from '../../shared/context/SettingsContext'
+import { SettingsContext } from '../../context/SettingsContext'
 import Input from '../components/Input'
-import CategoryButtons from '../../shared/components/CategoryButtons'
+import CategoryButtons from '../../UI/CategoryButtons'
 import DifficultyButtons from '../components/DifficultyButtons'
-import LoadingSpinner from '../../shared/components/LoadingSpinner'
-import ErrorBox from '../../shared/components/ErrorBox'
+import LoadingSpinner from '../../UI/LoadingSpinner'
+import ErrorBox from '../../UI/ErrorBox'
 import useQuizSettingsFetch from '../hooks/useQuizSettingsFetch'
 
 export default function QuizSettings() {

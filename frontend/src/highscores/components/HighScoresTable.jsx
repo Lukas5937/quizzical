@@ -23,7 +23,7 @@ export default function HighScoresTable({ highScoreData }) {
             Correct answers
           </th>
           <th className="high-scores-table__th" scope="col">
-            Game duration
+            Time
           </th>
           <th className="high-scores-table__th" scope="col">
             Category

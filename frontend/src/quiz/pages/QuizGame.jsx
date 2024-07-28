@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { QuestionsContext } from '../../shared/context/QuestionsContext'
-import { ResultsContext } from '../../shared/context/ResultsContext'
+import { QuestionsContext } from '../../context/QuestionsContext'
+import { ResultsContext } from '../../context/ResultsContext'
 import Question from '../components/Question'
 
 export default function QuizGame() {

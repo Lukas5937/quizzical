@@ -1,8 +1,8 @@
 import { useContext, useMemo, useRef, useEffect } from 'react'
 import { useMutation } from '@tanstack/react-query'
-import { ResultsContext } from '../../shared/context/ResultsContext'
-import { SettingsContext } from '../../shared/context/SettingsContext'
-import { sendQuizResultsData } from '../../shared/util/http'
+import { SettingsContext } from '../../context/SettingsContext'
+import { ResultsContext } from '../../context/ResultsContext'
+import { sendQuizResultsData } from '../../util/http'
 
 export default function useQuizResultsFetch() {
   const { settingsData } = useContext(SettingsContext)

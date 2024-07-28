@@ -1,10 +1,10 @@
 import useHighScoreDataFetch from '../hooks/useHighScoreDataFetch'
 import HighScoresTable from '../components/HighScoresTable'
-import LoadingSpinner from '../../shared/components/LoadingSpinner'
-import ErrorBox from '../../shared/components/ErrorBox'
+import LoadingSpinner from '../../UI/LoadingSpinner'
+import ErrorBox from '../../UI/ErrorBox'
 
-export default function HighScoresDataMedium() {
-  const { data, isPending, isError, error } = useHighScoreDataFetch('medium')
+export default function HighScoresDataHard() {
+  const { data, isPending, isError, error } = useHighScoreDataFetch('hard')
 
   let content
 
