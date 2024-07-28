@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from 'react'
 import { SettingsContext } from '../../context/SettingsContext'
 import Input from '../components/Input'
-import CategoryButtons from '../../UI/CategoryButtons'
+import CategoryButtons from '../components/CategoryButtons'
 import DifficultyButtons from '../components/DifficultyButtons'
 import LoadingSpinner from '../../UI/LoadingSpinner'
 import ErrorBox from '../../UI/ErrorBox'
