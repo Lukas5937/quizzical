@@ -3,7 +3,7 @@ import {
   getHighScoresCollection,
   fetchHighScoresData,
 } from '../util/fetchHighScoresData.js'
-import HttpError from '../models/http-error.js'
+import HttpError from '../models/httpError.js'
 
 async function sortedFetching(collection) {
   return await collection.find().sort({

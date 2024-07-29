@@ -1,5 +1,5 @@
 import { validationResult } from 'express-validator'
-import HttpError from '../models/http-error.js'
+import HttpError from '../models/httpError.js'
 import fetchQuestionsData from '../util/fetchQuestionsData.js'
 
 export const getQuestions = async (req, res, next) => {

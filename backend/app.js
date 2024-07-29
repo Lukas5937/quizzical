@@ -1,6 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import HttpError from './models/http-error.js'
+import HttpError from './models/httpError.js'
 import quizRoutes from './routes/quizRoutes.js'
 import highScoresRoutes from './routes/highScoresRoutes.js'
 

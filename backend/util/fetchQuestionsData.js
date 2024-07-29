@@ -1,5 +1,5 @@
 import axios from 'axios'
-import HttpError from '../models/http-error.js'
+import HttpError from '../models/httpError.js'
 
 export default async function fetchQuestionsData(category, difficulty) {
   const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`

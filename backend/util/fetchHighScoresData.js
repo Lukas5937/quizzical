@@ -2,8 +2,8 @@ import {
   EasyHighScore,
   MediumHighScore,
   HardHighScore,
-} from '../models/high-score-model.js'
-import HttpError from '../models/http-error.js'
+} from '../models/highScoreModel.js'
+import HttpError from '../models/httpError.js'
 
 export function getHighScoresCollection(difficulty) {
   let HighScoreCollection
