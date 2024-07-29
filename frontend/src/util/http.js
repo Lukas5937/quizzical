@@ -49,7 +49,7 @@ export async function sendQuizResultsData(quizResultsData) {
 export async function getHighScores({ signal, difficulty }) {
   const url = `http://localhost:4000/api/v1/high-scores?difficulty=${difficulty}`
 
-  const response = await fetch(url, { signal: signal })
+  const response = await fetch(url, { signal })
 
   if (!response.ok) {
     const error = new Error('An error occurred fetching the high scores data.')
