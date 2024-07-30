@@ -24,6 +24,7 @@ function App() {
           path: 'high-scores',
           element: <HighScoresNavigation />,
           children: [
+            { path: '', element: <Navigate to="hard" replace /> },
             { path: 'easy', element: <HighScoresDataEasy /> },
             { path: 'medium', element: <HighScoresDataMedium /> },
             { path: 'hard', element: <HighScoresDataHard /> },

@@ -28,7 +28,7 @@ export default function Navigation() {
           </li>
           <li>
             <NavLink
-              to="/high-scores/hard"
+              to="/high-scores"
               className={({ isActive }) =>
                 isActive ? 'nav-link active' : 'nav-link'
               }
