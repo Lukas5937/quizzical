@@ -1,0 +1,22 @@
+.nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 6em;
+  width: 90%;
+  margin: 1.125em auto;
+}
+
+.nav-link {
+  color: var(--font-color);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--font-color-green);
+}
+
+.active {
+  color: var(--font-color-green);
+  font-weight: 700;
+}

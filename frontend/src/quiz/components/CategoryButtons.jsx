@@ -4,9 +4,7 @@ export default function CategoryButtons({ settingsData, handleChange }) {
   return (
     <>
       <fieldset>
-        <legend>
-          Select a category for your quiz questions from the options below.
-        </legend>
+        <legend>Select a quiz category from the options below</legend>
         <CategoryButton
           value="general-knowledge"
           label="General knowledge"
