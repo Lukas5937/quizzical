@@ -1,26 +1,40 @@
+:root {
+  --bg-color: #eaf4f4;
+  --font-color: #272835;
+  --font-headings-color: #2c36be;
+  --button-color: #a4c3b2;
+  --button-color-hover: #b8d8c6;
+  --button-color-accent: #ff6555;
+  --button-color-accent-hover: #ff7262;
+}
+
 * {
   box-sizing: border-box;
-  --main-bg-color: #d6eefa;
-  --main-font-color: #272835;
-  --main-color-dark: #09577d;
-  --main-color-dark-hover: #0c6897;
-  --main-color-accent: #ff6555;
-  --main-color-accent-hover: #ff7262;
 }
 
 body {
   margin: 0;
   background-color: var(--main-bg-color);
-  font-family: 'Roboto';
   color: var(--main-font-color);
+  font-family: 'Manrope', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1,
 h2,
 h3,
-h4,
 p {
   margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Dela Gothic One', sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .nav-container {
@@ -60,6 +74,7 @@ h1 {
   font-size: 4rem;
   font-weight: 500;
   margin: 0;
+  color: var(--font-headings-color);
 }
 
 .home-subtitle {
