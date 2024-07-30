@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <header>
       <div className="home-content">
-        <h1>Test your knowledge with QuizNerds!</h1>
+        <h1>Test your knowledge with Quizzical!</h1>
         <p className="home-subtitle">
           Challenge yourself and compete with others in various categories.
         </p>
