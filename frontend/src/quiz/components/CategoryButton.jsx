@@ -6,7 +6,7 @@ export default function CategoryButton({
   onChange,
 }) {
   return (
-    <>
+    <div className="category-button-container">
       <input
         type="radio"
         id={value}
@@ -16,7 +16,12 @@ export default function CategoryButton({
         onChange={onChange}
         required
       />
-      <label htmlFor={value}>{label}</label>
-    </>
+      <label htmlFor={value}>
+        <div className="category-button-label-container">
+          <img className="category-button-image" src={img} alt={label} />
+          <p>{label}</p>
+        </div>
+      </label>
+    </div>
   )
 }

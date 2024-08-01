@@ -12,8 +12,9 @@ export default function Navigation() {
               className={({ isActive }) =>
                 isActive ? 'nav-link active' : 'nav-link'
               }
+              end
             >
-              QuizNerds
+              Quizzical
             </NavLink>
           </li>
           <li>

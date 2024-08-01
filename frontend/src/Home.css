@@ -5,16 +5,18 @@
   padding: 0;
 } */
 
-.home-container {
-  width: 90%;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
 .home-heading {
   font-size: 10rem;
   margin: 0;
   text-align: center;
+}
+
+.home-symbols-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  margin: 2em 0 4em;
 }
 
 .home-subtitle {
@@ -24,17 +26,10 @@
 .home-paragraphs-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1em;
+  gap: 4em;
+  margin-bottom: 4em;
 }
 
 .home-paragraph {
-  font-size: 1.125rem;
-}
-
-.home-symbols-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6rem;
-  margin: 2em 0;
+  margin-bottom: 0;
 }

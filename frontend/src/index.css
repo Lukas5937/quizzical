@@ -1,7 +1,10 @@
 :root {
   --bg-color: #eaf4f4;
+  --bg-color-light-card: #cde5e5;
+  --bg-color-dark-card: #374c40;
   --font-color: #303141;
   --font-headings-color: #3a409e;
+  --font-headings-color-light: #babde6;
   --button-color: #95bca6;
   --button-color-hover: #a1c8b2;
   --accent-color: #ff6555;
@@ -17,6 +20,7 @@ body {
   margin: 0;
   background-color: var(--bg-color);
   color: var(--font-color);
+  font-size: 1.125rem;
   font-family: 'Manrope', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -48,6 +52,7 @@ h3,
 legend {
   font-family: 'Dela Gothic One', sans-serif;
   font-size: 1.5rem;
+  margin-top: 0;
   margin-bottom: 0.5em;
 }
 
@@ -60,11 +65,96 @@ a {
   color: var(--font-color);
 }
 
-/* ========== Other Styles ========== */
+/* ========== Content containers ========== */
+
+.content-container-large {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.light-card {
+  padding: 1.5em;
+  background-color: var(--bg-color-light-card);
+  color: var(--font-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dark-card {
+  padding: 1.5em;
+  background-color: var(--bg-color-dark-card);
+  color: var(--font-headings-color-light);
+  border-radius: 8px;
+}
+
+/* ========== Layout groups ========== */
+
+.push-down {
+  margin-top: auto;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+/* ========== Category Buttons ========== */
 
 fieldset {
   border: 0;
 }
+
+input[type='radio'] {
+  display: none;
+}
+
+.category-buttons-container {
+  display: flex;
+  gap: 3em;
+  font-size: 0.875rem;
+  line-height: 1em;
+}
+
+.category-button-container {
+  width: 4em;
+  text-align: center;
+}
+
+.category-button-label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-button-image {
+  width: 4em;
+  height: 4em;
+}
+
+/* ========== Footer ========== */
+
+.footer {
+  margin: 8em 0 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75em;
+  font-size: 0.875rem;
+}
+
+.footer-image-container {
+  display: flex;
+  gap: 2em;
+}
+
+.footer-image {
+  width: 1.25em;
+  height: auto;
+}
+
+/* ========== Other styles ========== */
 
 .button,
 .answer-button {
@@ -95,10 +185,6 @@ fieldset {
 
 .accent:hover {
   background-color: var(--accent-color-hover);
-}
-
-fieldset {
-  margin: 4em 0;
 }
 
 .answers-container {
