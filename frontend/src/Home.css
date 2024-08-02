@@ -11,11 +11,8 @@
   text-align: center;
 }
 
-.home-symbols-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6rem;
+.symbols-container.home {
+  gap: 6em;
   margin: 2em 0 4em;
 }
 

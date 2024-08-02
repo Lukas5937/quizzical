@@ -1,16 +1,21 @@
 export default function Input({ name, value, label, onChange }) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
-      <input
-        type="text"
-        id={name}
-        name={name}
-        value={value}
-        onChange={onChange}
-        minLength="3"
-        required
-      />
+      <div className="input-container">
+        <label className="input-label" htmlFor={name}>
+          {label}
+        </label>
+        <input
+          className="input"
+          type="text"
+          id={name}
+          name={name}
+          value={value}
+          onChange={onChange}
+          minLength="3"
+          required
+        />
+      </div>
     </>
   )
 }
