@@ -15,7 +15,12 @@ export default function DifficultyButton({
         onChange={onChange}
         required
       />
-      <label htmlFor={value}>{label}</label>
+      <label
+        className={`button small-button ${!isChecked && 'light'}`}
+        htmlFor={value}
+      >
+        {label}
+      </label>
     </>
   )
 }

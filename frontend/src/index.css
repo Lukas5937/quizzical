@@ -1,7 +1,7 @@
 :root {
-  --bg-color: #eaf4f4;
-  --bg-color-light-card: #cde5e5;
-  --bg-color-dark-card: #374c40;
+  --bg-color-body: #eaf4f4;
+  --bg-color-light: #cde5e5;
+  --bg-color-dark: #374c40;
   --font-color: #303141;
   --font-headings-color: #3a409e;
   --font-headings-color-light: #babde6;
@@ -18,7 +18,7 @@
 
 body {
   margin: 0;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color-body);
   color: var(--font-color);
   font-size: 1.125rem;
   font-family: 'Manrope', sans-serif;
@@ -62,11 +62,6 @@ legend,
   margin-bottom: 0.5em;
 }
 
-legend,
-.input-label {
-  font-size: 1.25rem;
-}
-
 ul {
   list-style-type: none;
 }
@@ -86,7 +81,7 @@ a {
 
 .light-card {
   padding: 1.5em;
-  background-color: var(--bg-color-light-card);
+  background-color: var(--bg-color-light);
   color: var(--font-color);
   border-radius: 8px;
   display: flex;
@@ -96,9 +91,13 @@ a {
 
 .dark-card {
   padding: 1.5em;
-  background-color: var(--bg-color-dark-card);
+  background-color: var(--bg-color-dark);
   color: var(--font-headings-color-light);
   border-radius: 8px;
+}
+
+.light {
+  background-color: var(--bg-color-light) !important;
 }
 
 /* ========== Layout groups ========== */
@@ -111,7 +110,46 @@ a {
   margin: 0;
 }
 
-/* ========== Category Buttons ========== */
+/* ========== Form elements ========== */
+
+.form {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+legend,
+.input-label {
+  font-size: 1.25rem;
+}
+
+legend {
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+  margin-bottom: 1.75em;
+}
+
+.text-input {
+  margin-bottom: 0.75em;
+  background-color: var(--bg-color-light);
+  border: none;
+  border-radius: 4px;
+  height: 2.5em;
+  width: 24em;
+  padding: 0 0.5em;
+  color: var(--font-color);
+  font-size: 1.125rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
 
 fieldset {
   border: 0;
@@ -121,8 +159,9 @@ input[type='radio'] {
   display: none;
 }
 
-.category-buttons-container {
+.radio-buttons-container {
   display: flex;
+  justify-content: center;
   gap: 3em;
   font-size: 0.875rem;
   line-height: 1em;
@@ -140,8 +179,9 @@ input[type='radio'] {
 }
 
 .category-button-image {
-  width: 4em;
-  height: 4em;
+  width: 3em;
+  height: 3em;
+  margin-bottom: 0.5em;
 }
 
 /* ========== Footer ========== */
@@ -150,42 +190,24 @@ input[type='radio'] {
   margin: 8em 0 1.5em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 0.75em;
   font-size: 0.875rem;
+  text-align: center;
 }
 
 .footer-image-container {
   display: flex;
+  justify-content: center;
   gap: 2em;
 }
 
 .footer-image {
   width: 1.25em;
   height: auto;
-}
-
-/* ========== Inputs ========== */
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-
-.input {
-  background-color: var(--bg-color-light-card);
-  border: none;
-  border-radius: 4px;
-  height: 3em;
-  width: 20em;
-  padding: 0 0.5em;
-  color: var(--font-color);
-  font-size: 1.125rem;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 /* ========== Symbols ========== */
@@ -195,7 +217,7 @@ input[type='radio'] {
   justify-content: center;
   align-items: center;
   gap: 3em;
-  margin: 1em 0 2em;
+  margin: 1.25em 0;
 }
 
 /* ========== Other styles ========== */
@@ -207,12 +229,9 @@ input[type='radio'] {
   font-weight: 600;
   background-color: var(--button-color);
   padding: 1.25em 2.5em;
-  margin-right: 2em;
+  /* margin-right: 2em; */
   border-radius: 6px;
   border: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .button:hover,
@@ -224,11 +243,20 @@ input[type='radio'] {
   background-color: var(--button-color-hover);
 }
 
-.accent {
+.accent-button {
   background-color: var(--accent-color);
 }
 
-.accent:hover {
+.large-button {
+  padding: 1.5em 4em;
+}
+
+.small-button {
+  padding: 1.125em 2.25em;
+  font-size: 1rem;
+}
+
+.accent-button:hover {
   background-color: var(--accent-color-hover);
 }
 

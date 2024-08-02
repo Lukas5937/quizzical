@@ -6,7 +6,7 @@ export default function Input({ name, value, label, onChange }) {
           {label}
         </label>
         <input
-          className="input"
+          className="text-input"
           type="text"
           id={name}
           name={name}

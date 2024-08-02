@@ -14,6 +14,7 @@ import HighlightSparkle from '../../assets/Symbols/HighlightSparkle.svg'
 import HighlightStars from '../../assets/Symbols/HighlightStars.svg'
 import SpringLineCurly from '../../assets/Symbols/SpringLineCurly.svg'
 import './QuizSettings.css'
+import Footer from '../../UI/Footer'
 
 export default function QuizSettings() {
   const { settingsData, setSettingsData, handleChange } =
@@ -41,39 +42,50 @@ export default function QuizSettings() {
   const { handleSubmit, isPending, isError, error } = useQuizSettingsFetch()
 
   return (
-    <div className="content-container-large">
-      <section className="quiz-settings-section">
-        {!isError && (
-          <>
-            <h1>Quiz Settings</h1>
-            <div className="symbols-container">
-              <Symbol image={HighLightEffect} alt="Highlight effect symbol" />
-              <Symbol image={HighlightSparkle} alt="Highlight sparkle symbol" />
-              <Symbol image={HighlightStars} alt="Highlight stars symbol" />
-              <Symbol image={SpringLineCurly} alt="Spring line curly symbol" />
-            </div>
-            <form onSubmit={handleSubmit}>
-              <Input
-                name="userName"
-                value={settingsData.userName}
-                label="Please provide a username to personalize your quiz experience"
-                onChange={handleChange}
-              />
-              <CategoryButtons
-                settingsData={settingsData}
-                handleChange={handleChange}
-              />
-              <DifficultyButtons
-                settingsData={settingsData}
-                handleChange={handleChange}
-              />
-              <Button accent>Start Quiz</Button>
-            </form>
-            {isPending && <LoadingSpinner />}
-          </>
-        )}
-        {isError && <ErrorBox error={error} />}
-      </section>
-    </div>
+    <>
+      <div className="content-container-large">
+        <section className="quiz-settings-section">
+          {!isError && (
+            <>
+              <h1>Quiz Settings</h1>
+              <div className="symbols-container">
+                <Symbol image={HighLightEffect} alt="Highlight effect symbol" />
+                <Symbol
+                  image={HighlightSparkle}
+                  alt="Highlight sparkle symbol"
+                />
+                <Symbol image={HighlightStars} alt="Highlight stars symbol" />
+                <Symbol
+                  image={SpringLineCurly}
+                  alt="Spring line curly symbol"
+                />
+              </div>
+              <form className="form" onSubmit={handleSubmit}>
+                <Input
+                  name="userName"
+                  value={settingsData.userName}
+                  label="Please provide a username to personalize your quiz experience"
+                  onChange={handleChange}
+                />
+                <CategoryButtons
+                  settingsData={settingsData}
+                  handleChange={handleChange}
+                />
+                <DifficultyButtons
+                  settingsData={settingsData}
+                  handleChange={handleChange}
+                />
+                <Button accent size="large">
+                  Start Quiz
+                </Button>
+              </form>
+              {isPending && <LoadingSpinner />}
+            </>
+          )}
+          {isError && <ErrorBox error={error} />}
+        </section>
+        <Footer />
+      </div>
+    </>
   )
 }

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { SettingsContext } from './context/SettingsContext'
 import CategoryButtons from './quiz/components/CategoryButtons'
 import Button from './UI/Button'
@@ -61,18 +61,18 @@ export default function Home() {
           <div className="home-paragraphs-container">
             <p className="no-margin">
               Welcome to Quizzical, your one-stop hub for a trivia extravaganza.
-              This ain’t your ordinary quiz app. This is your ticket to a world
-              where knowledge is power, and power means bragging rights! Get
-              ready to embark on a journey filled with intriguing questions and
-              fascinating facts that will challenge your intellect.
+              This ain&#39;t your ordinary quiz app. This is your ticket to a
+              world where knowledge is power, and power means bragging rights!
+              Get ready to embark on a journey filled with intriguing questions
+              and fascinating facts that will challenge your intellect.
             </p>
             <p className="no-margin">
               Navigate through our diverse quiz settings, selecting from a range
-              of topics that pique your interest. Or, if you’re feeling
+              of topics that pique your interest. Or, if you&#39;re feeling
               adventurous, dive straight into the game of wits and put your
-              skills to the test. But remember - the clock’s ticking, and every
-              second counts. Are you ready to test your gray matter and prove
-              your prowess?
+              skills to the test. But remember - the clock&#39;s ticking, and
+              every second counts. Are you ready to test your gray matter and
+              prove your prowess?
             </p>
           </div>
         </header>
@@ -113,8 +113,8 @@ export default function Home() {
             />
           </div>
         </section>
+        <Footer />
       </div>
-      <Footer />
     </>
   )
 }
