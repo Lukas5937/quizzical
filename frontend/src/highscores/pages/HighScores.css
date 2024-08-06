@@ -38,17 +38,17 @@
 
 .high-scores-table {
   margin: 3em auto 0;
-  width: 90%;
-  /* table-layout: fixed; */
-  border-spacing: 0.5em 1em;
+  width: 100%;
+  border-spacing: 1em;
 }
 
 .high-scores-table-th {
   color: var(--font-headings-color);
-  text-align: start;
+  /* text-align: start; */
 }
 
 td,
 tr {
   width: 2em;
+  text-align: center;
 }
