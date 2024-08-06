@@ -1,16 +1,22 @@
 import { NavLink, Outlet } from 'react-router-dom'
 
+import '../pages/HighScores.css'
+import Footer from '../../UI/Footer'
+
 export default function HighScoresNavigation() {
   return (
-    <>
-      <h2>Difficulty</h2>
-      <nav>
-        <ul className="nav-container">
+    <div className="content-container-large">
+      <h1 className="high-scores-heading">High scores</h1>
+      <nav className="high-scores-navigation-container">
+        <h3 className="high-scores-navigation-heading">Difficulty:</h3>
+        <ul className="high-scores-navigation-links-container">
           <li>
             <NavLink
               to="/high-scores/easy"
               className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
+                isActive
+                  ? 'high-scores-navigation-link active'
+                  : 'high-scores-navigation-link'
               }
             >
               Easy
@@ -20,7 +26,9 @@ export default function HighScoresNavigation() {
             <NavLink
               to="/high-scores/medium"
               className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
+                isActive
+                  ? 'high-scores-navigation-link active'
+                  : 'high-scores-navigation-link'
               }
             >
               Medium
@@ -30,7 +38,9 @@ export default function HighScoresNavigation() {
             <NavLink
               to="/high-scores/hard"
               className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
+                isActive
+                  ? 'high-scores-navigation-link active'
+                  : 'high-scores-navigation-link'
               }
             >
               Hard
@@ -38,10 +48,10 @@ export default function HighScoresNavigation() {
           </li>
         </ul>
       </nav>
-
       <main>
         <Outlet />
       </main>
-    </>
+      <Footer />
+    </div>
   )
 }

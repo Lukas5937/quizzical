@@ -1,0 +1,54 @@
+.high-scores-heading {
+  text-align: center;
+}
+
+.high-scores-navigation-container {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.high-scores-navigation-heading {
+  font-family: 'Manrope', sans-serif;
+  color: var(--font-color);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.high-scores-navigation-links-container {
+  display: flex;
+  gap: 2em;
+}
+
+.high-scores-navigation-link {
+  color: var(--font-color);
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.high-scores-navigation-link:hover {
+  color: var(--font-color-green);
+}
+
+.active {
+  color: var(--font-color-green);
+  font-weight: 700;
+}
+
+.high-scores-table {
+  margin: 3em auto 0;
+  width: 90%;
+  /* table-layout: fixed; */
+  border-spacing: 0.5em 1em;
+}
+
+.high-scores-table-th {
+  color: var(--font-headings-color);
+  text-align: start;
+}
+
+td,
+tr {
+  width: 2em;
+}

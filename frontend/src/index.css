@@ -3,6 +3,7 @@
   --bg-color-light: #cde5e5;
   --bg-color-dark: #374c40;
   --font-color: #303141;
+  --font-color-green: #497f61;
   --font-headings-color: #3a409e;
   --font-headings-color-light: #babde6;
   --button-color: #95bca6;
@@ -10,7 +11,6 @@
   --accent-color-red: #ff6555;
   --accent-color-red-hover: #ff7262;
   --accent-color-green: #8fb27c;
-  --font-color-green: #497f61;
 }
 
 * {
@@ -215,7 +215,6 @@ input[type='radio'] {
 
 .footer-image {
   width: 1.25em;
-
   margin: 0;
   padding: 0;
 }

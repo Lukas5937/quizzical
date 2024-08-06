@@ -19,11 +19,6 @@ export default function HighScoresDataHard() {
   if (data) {
     content = <HighScoresTable highScoreData={data} />
 
-    return (
-      <>
-        <h2>High Scores</h2>
-        {content}
-      </>
-    )
+    return <section>{content}</section>
   }
 }

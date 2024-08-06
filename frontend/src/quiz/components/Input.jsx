@@ -13,6 +13,7 @@ export default function Input({ name, value, label, onChange }) {
           value={value}
           onChange={onChange}
           minLength="3"
+          maxLength="20"
           required
         />
       </div>

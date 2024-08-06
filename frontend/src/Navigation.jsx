@@ -5,12 +5,12 @@ export default function Navigation() {
   return (
     <>
       <nav>
-        <ul className="nav-container">
+        <ul className="navigation-container">
           <li>
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
+                isActive ? 'navigation-link active' : 'navigation-link'
               }
               end
             >
@@ -21,7 +21,7 @@ export default function Navigation() {
             <NavLink
               to="quiz/settings"
               className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
+                isActive ? 'navigation-link active' : 'navigation-link'
               }
             >
               Start Quiz
@@ -31,7 +31,7 @@ export default function Navigation() {
             <NavLink
               to="/high-scores"
               className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
+                isActive ? 'navigation-link active' : 'navigation-link'
               }
             >
               High Scores

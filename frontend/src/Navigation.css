@@ -1,4 +1,4 @@
-.nav-container {
+.navigation-container {
   display: flex;
   justify-content: center;
   gap: 6em;
@@ -6,12 +6,12 @@
   margin: 1.125em auto;
 }
 
-.nav-link {
+.navigation-link {
   color: var(--font-color);
   font-weight: 500;
 }
 
-.nav-link:hover {
+.navigation-link:hover {
   color: var(--font-color-green);
 }
 

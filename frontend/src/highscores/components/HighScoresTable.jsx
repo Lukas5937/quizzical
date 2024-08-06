@@ -1,10 +1,13 @@
 export default function HighScoresTable({ highScoreData }) {
+  let rank = 0
   const tableBody = highScoreData.map((results) => {
+    rank += 1
     return (
       <tr key={results._id}>
+        <td>{rank}</td>
         <td>{results.userName}</td>
-        <td>{results.correctAnswers}</td>
-        <td>{results.duration}</td>
+        <td>{results.correctAnswers} /10</td>
+        <td>{results.duration} sec</td>
         <td>{results.category}</td>
         <td>{results.difficulty}</td>
         <td>{results.date}</td>
@@ -13,25 +16,28 @@ export default function HighScoresTable({ highScoreData }) {
   })
 
   return (
-    <table>
+    <table className="high-scores-table">
       <thead>
         <tr>
-          <th className="high-scores-table__th" scope="col">
+          <th className="high-scores-table-th" scope="col">
+            Rank
+          </th>
+          <th className="high-scores-table-th" scope="col">
             User name
           </th>
-          <th className="high-scores-table__th" scope="col">
+          <th className="high-scores-table-th" scope="col">
             Correct answers
           </th>
-          <th className="high-scores-table__th" scope="col">
+          <th className="high-scores-table-th" scope="col">
             Time
           </th>
-          <th className="high-scores-table__th" scope="col">
+          <th className="high-scores-table-th" scope="col">
             Category
           </th>
-          <th className="high-scores-table__th" scope="col">
+          <th className="high-scores-table-th" scope="col">
             Difficulty
           </th>
-          <th className="high-scores-table__th" scope="col">
+          <th className="high-scores-table-th" scope="col">
             Date
           </th>
         </tr>
