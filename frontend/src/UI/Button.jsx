@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom'
 
-export default function Button({ to, accent, size, ...props }) {
+export default function Button({ to, answer, color, size, ...props }) {
   let cssClasses = 'button'
 
-  if (accent) {
+  if (color === 'accent') {
     cssClasses += ' accent-button'
   }
+
+  if (color === 'light') {
+    cssClasses += ' light-button'
+  }
+
   if (size === 'large') {
     cssClasses += ' large-button'
   }
@@ -16,6 +21,10 @@ export default function Button({ to, accent, size, ...props }) {
 
   if (to) {
     return <Link className={cssClasses} to={to} {...props}></Link>
+  }
+
+  if (answer) {
+    cssClasses = `button light-button `
   }
 
   return <button className={cssClasses} {...props}></button>

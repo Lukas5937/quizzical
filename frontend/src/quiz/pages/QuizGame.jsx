@@ -4,10 +4,12 @@ import { QuestionsContext } from '../../context/QuestionsContext'
 import { ResultsContext } from '../../context/ResultsContext'
 import Question from '../components/Question'
 
+import './QuizGame.css'
+
 export default function QuizGame() {
   const { questions, setQuestions } = useContext(QuestionsContext)
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0)
-  const [timer, setTimer] = useState(5)
+  const [timer, setTimer] = useState(15)
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const { gameDuration } = useContext(ResultsContext)
   const navigate = useNavigate()
@@ -34,7 +36,7 @@ export default function QuizGame() {
       setTimeout(() => {
         setActiveQuestionIndex((prevIndex) => prevIndex + 1)
         setButtonDisabled(false)
-        setTimer(5)
+        setTimer(15)
       }, 2000)
     },
     [addUserAnswerToQuestions]
@@ -61,24 +63,25 @@ export default function QuizGame() {
     return () => clearInterval(interval)
   }, [handleSelectAnswer, quizIsCompleted, timer, activeQuestion])
 
-  if (quizIsCompleted) {
-    setTimeout(() => navigate('/quiz/results'), 1500)
-    return (
-      <>
-        <h2>You completed the Quiz!</h2>
-      </>
-    )
-  }
+  useEffect(() => {
+    if (quizIsCompleted) {
+      navigate('/quiz/results')
+    }
+  }, [quizIsCompleted, navigate])
 
   return (
-    <>
-      <h2>Quiz Game</h2>
-      <p>You have {timer} seconds left.</p>
-      <Question
-        activeQuestion={activeQuestion}
-        onSelectAnswer={handleSelectAnswer}
-        buttonDisabled={buttonDisabled}
-      />
-    </>
+    <div className="content-container-large">
+      <section className="quiz-game-section">
+        <h1>Quiz Game</h1>
+        <p className="large-paragraph">You have {timer} seconds left.</p>
+        {activeQuestion && (
+          <Question
+            activeQuestion={activeQuestion}
+            onSelectAnswer={handleSelectAnswer}
+            buttonDisabled={buttonDisabled}
+          />
+        )}
+      </section>
+    </div>
   )
 }

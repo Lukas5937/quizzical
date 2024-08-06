@@ -1,4 +1,6 @@
 import he from 'he'
+import AnswerButton from './AnswerButton'
+
 export default function Question({
   activeQuestion,
   onSelectAnswer,
@@ -8,23 +10,23 @@ export default function Question({
 
   function setBackgroundColor(answer) {
     if (userAnswer && answer === correctAnswer) {
-      return 'is-correct'
+      return 'green'
     }
     if (answer === userAnswer && answer !== correctAnswer) {
-      return 'is-incorrect'
+      return 'red'
     }
-    return ''
+    return 'light'
   }
 
   const answers = activeQuestion.answers.map((answer) => (
     <li key={answer}>
-      <button
-        className={`answer-button ${setBackgroundColor(answer)}`}
-        onClick={() => onSelectAnswer(answer)}
+      <AnswerButton
+        color={setBackgroundColor(answer)}
+        selectAnswer={() => onSelectAnswer(answer)}
         disabled={buttonDisabled}
       >
         {he.decode(answer)}
-      </button>
+      </AnswerButton>
     </li>
   ))
   return (

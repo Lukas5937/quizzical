@@ -1,23 +1,12 @@
-/* header {
-  display: flex;
-  width: 90%;
-  margin: 0 auto;
-  padding: 0;
-} */
-
 .home-heading {
   font-size: 10rem;
   margin: 0;
   text-align: center;
 }
 
-.symbols-container.home {
-  gap: 6em;
-  margin: 2em 0 4em;
-}
-
 .home-subtitle {
   color: var(--font-color);
+  margin-top: 3em;
 }
 
 .home-paragraphs-container {

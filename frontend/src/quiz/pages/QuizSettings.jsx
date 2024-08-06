@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from 'react'
 import { SettingsContext } from '../../context/SettingsContext'
 import Button from '../../UI/Button'
-import Symbol from '../../UI/Symbol'
+import Symbols from '../../UI/Symbols'
 import Input from '../components/Input'
 import CategoryButtons from '../components/CategoryButtons'
 import DifficultyButtons from '../components/DifficultyButtons'
@@ -9,10 +9,6 @@ import LoadingSpinner from '../../UI/LoadingSpinner'
 import ErrorBox from '../../UI/ErrorBox'
 import useQuizSettingsFetch from '../hooks/useQuizSettingsFetch'
 
-import HighLightEffect from '../../assets/Symbols/HighlightEffect.svg'
-import HighlightSparkle from '../../assets/Symbols/HighlightSparkle.svg'
-import HighlightStars from '../../assets/Symbols/HighlightStars.svg'
-import SpringLineCurly from '../../assets/Symbols/SpringLineCurly.svg'
 import './QuizSettings.css'
 import Footer from '../../UI/Footer'
 
@@ -48,18 +44,7 @@ export default function QuizSettings() {
           {!isError && (
             <>
               <h1>Quiz Settings</h1>
-              <div className="symbols-container">
-                <Symbol image={HighLightEffect} alt="Highlight effect symbol" />
-                <Symbol
-                  image={HighlightSparkle}
-                  alt="Highlight sparkle symbol"
-                />
-                <Symbol image={HighlightStars} alt="Highlight stars symbol" />
-                <Symbol
-                  image={SpringLineCurly}
-                  alt="Spring line curly symbol"
-                />
-              </div>
+              <Symbols size="small" />
               <form className="form" onSubmit={handleSubmit}>
                 <Input
                   name="userName"
@@ -75,7 +60,7 @@ export default function QuizSettings() {
                   settingsData={settingsData}
                   handleChange={handleChange}
                 />
-                <Button accent size="large">
+                <Button color="accent" size="large">
                   Start Quiz
                 </Button>
               </form>

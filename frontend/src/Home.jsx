@@ -3,14 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { SettingsContext } from './context/SettingsContext'
 import CategoryButtons from './quiz/components/CategoryButtons'
 import Button from './UI/Button'
-import Symbol from './UI/Symbol'
+import Symbols from './UI/Symbols'
 import Footer from './UI/Footer'
 
 import './Home.css'
-import HighLightEffect from './assets/Symbols/HighlightEffect.svg'
-import HighlightSparkle from './assets/Symbols/HighlightSparkle.svg'
-import HighlightStars from './assets/Symbols/HighlightStars.svg'
-import SpringLineCurly from './assets/Symbols/SpringLineCurly.svg'
 
 export default function Home() {
   const { settingsData, handleChange, setSettingsData } =
@@ -35,28 +31,7 @@ export default function Home() {
       <div className="content-container-large">
         <header>
           <h1 className="home-heading">Quizzical</h1>
-          <div className="symbols-container home">
-            <Symbol
-              image={HighLightEffect}
-              alt="Highlight effect symbol"
-              size="large"
-            />
-            <Symbol
-              image={HighlightSparkle}
-              alt="Highlight sparkle symbol"
-              size="large"
-            />
-            <Symbol
-              image={HighlightStars}
-              alt="Highlight stars symbol"
-              size="large"
-            />
-            <Symbol
-              image={SpringLineCurly}
-              alt="Spring line curly symbol"
-              size="large"
-            />
-          </div>
+          <Symbols size="large" />
           <h2 className="home-subtitle">Let the games begin!</h2>
           <div className="home-paragraphs-container">
             <p className="no-margin">
@@ -88,7 +63,7 @@ export default function Home() {
                 trivia. Test your knowledge, learn new facts, and compete for
                 the top scores. The adventure starts now!
               </p>
-              <Button to="quiz/settings" accent>
+              <Button to="quiz/settings" color="accent">
                 Start Quiz
               </Button>
             </div>
