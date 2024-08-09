@@ -27,13 +27,15 @@
   font-size: 1.25rem;
 }
 
-.high-scores-navigation-link:hover {
+.high-scores-navigation-link:hover,
+.high-scores-navigation-link:focus {
   color: var(--font-color-green);
 }
 
-.active {
+.active-high-scores {
   color: var(--font-color-green);
   font-weight: 700;
+  border-bottom: 2px solid var(--font-color-green);
 }
 
 .high-scores-table {

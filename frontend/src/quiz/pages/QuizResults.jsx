@@ -6,7 +6,9 @@ import { ResultsContext } from '../../context/ResultsContext'
 import useQuizResultsFetch from '../hooks/useQuizResultsFetch'
 import useQuizSettingsFetch from '../hooks/useQuizSettingsFetch'
 import Symbols from '../../UI/Symbols'
-import LoadingSpinner from '../../UI/LoadingSpinner'
+import Symbol from '../../UI/Symbol'
+import Congratulations from '../../assets/Symbols/Congratulations.svg'
+import CircularProgress from '@mui/material/CircularProgress'
 import ErrorBox from '../../UI/ErrorBox'
 import Footer from '../../UI/Footer'
 
@@ -30,6 +32,7 @@ export default function QuizResults() {
   ).length
 
   const {
+    isNewHighScore,
     isLoading: isLoadingResults,
     isError: isErrorResults,
     error: errorResults,
@@ -40,6 +43,8 @@ export default function QuizResults() {
     isError: isErrorSettings,
     error: errorSettings,
   } = useQuizSettingsFetch()
+
+  console.log(isNewHighScore.current)
 
   const results = questions.map((question) => {
     const isCorrect = question.userAnswer === question['correct_answer']
@@ -89,18 +94,32 @@ export default function QuizResults() {
           !isLoadingResults && (
             <>
               <h1>Your results</h1>
+              <Symbols size="small" />
+              {isNewHighScore.current && (
+                <div className="congratulations-container">
+                  <p className="congratulations-text">
+                    {' '}
+                    Congratulations! You created a new high score!
+                  </p>
+                  <Symbol image={Congratulations} size="large" alt="Trophy" />
+                </div>
+              )}
               <p className="large-paragraph">
                 {numberOfCorrectAnswers.current}/{questions.length} correct
                 answers
               </p>
-              <Symbols size="small" />
+
               <ul>{results}</ul>
               <div className="results-buttons-container">
                 <Link
                   onClick={handleSubmitSettings}
                   className="button accent-button"
                 >
-                  {isPendingSettings ? <LoadingSpinner /> : 'Play again'}
+                  {isPendingSettings ? (
+                    <CircularProgress className="circular-progress" />
+                  ) : (
+                    'Play again'
+                  )}
                 </Link>
                 <Link to={'/quiz/settings'} className="button">
                   Change Quiz Settings
@@ -116,7 +135,7 @@ export default function QuizResults() {
           )}
       </section>
       {!showIntroText && !isErrorResults && !isErrorSettings && <Footer />}
-      {isLoadingResults && <LoadingSpinner />}
+      {isLoadingResults && <CircularProgress className="circular-progress" />}
       {isErrorResults && <ErrorBox error={errorResults} />}
       {isErrorSettings && <ErrorBox error={errorSettings} />}
     </div>

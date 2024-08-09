@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import ContextProviders from './context/ContextProviders.jsx'
 import Navigation from './Navigation.jsx'
+import ErrorPage from './ErrorPage.jsx'
 import Home from './Home.jsx'
 import QuizSettings from './quiz/pages/QuizSettings'
 import QuizGame from './quiz/pages/QuizGame'
@@ -15,6 +16,7 @@ function App() {
     {
       path: '/',
       element: <Navigation />,
+      errorElement: <ErrorPage />,
       children: [
         { path: '', element: <Home /> },
         { path: 'quiz/settings', element: <QuizSettings /> },

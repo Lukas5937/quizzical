@@ -188,6 +188,10 @@ input[type='radio'] {
   align-items: center;
 }
 
+.category-button-label-container:hover {
+  cursor: pointer;
+}
+
 .category-button-image {
   width: 3em;
   height: 3em;
@@ -231,6 +235,12 @@ input[type='radio'] {
 
 /* ========== Other styles ========== */
 
+.circular-progress {
+  color: var(--font-color) !important;
+  width: 1.5em !important;
+  height: 1.5em !important;
+}
+
 .button,
 .answer-button {
   color: var(--font-color);
@@ -250,7 +260,8 @@ input[type='radio'] {
   cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   background-color: var(--button-color-hover);
 }
 
@@ -258,7 +269,8 @@ input[type='radio'] {
   background-color: var(--accent-color-red);
 }
 
-.accent-button:hover {
+.accent-button:hover,
+.accent-button:focus {
   background-color: var(--accent-color-red-hover);
 }
 
@@ -275,7 +287,8 @@ input[type='radio'] {
 }
 
 .large-button {
-  padding: 1.5em 4em;
+  width: 12em;
+  height: 4em;
 }
 
 .small-button {
@@ -315,6 +328,6 @@ input[type='radio'] {
 .error-box {
   margin: 2em 0;
   padding: 1em;
-  background-color: #e74e3d;
+  background-color: var(--accent-color-red);
   color: #491e19;
 }

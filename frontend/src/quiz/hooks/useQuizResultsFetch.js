@@ -7,12 +7,19 @@ import { sendQuizResultsData } from '../../util/http'
 export default function useQuizResultsFetch() {
   const { settingsData } = useContext(SettingsContext)
   const { gameDuration, numberOfCorrectAnswers } = useContext(ResultsContext)
+  const isNewHighScore = useRef(false)
   const hasSent = useRef(false)
-  const today = new Date().toLocaleDateString()
+
+  const today = new Date()
+  const month = today.getMonth() + 1
+  const day = today.getDate()
+  const year = today.getFullYear()
+  const formattedDate = `${month}-${day}-${year}`
 
   const { mutate, isLoading, isError, error } = useMutation({
     mutationFn: sendQuizResultsData,
-    onSuccess: () => {
+    onSuccess: ({ newHighScore }) => {
+      isNewHighScore.current = newHighScore
       gameDuration.current = 0
     },
   })
@@ -24,7 +31,7 @@ export default function useQuizResultsFetch() {
       duration: gameDuration.current,
       category: settingsData.category,
       difficulty: settingsData.difficulty,
-      date: today,
+      date: formattedDate,
     }
   }, [
     gameDuration,
@@ -32,7 +39,7 @@ export default function useQuizResultsFetch() {
     settingsData.category,
     settingsData.difficulty,
     settingsData.userName,
-    today,
+    formattedDate,
   ])
 
   useEffect(() => {
@@ -42,5 +49,5 @@ export default function useQuizResultsFetch() {
     }
   }, [mutate, quizResultsData])
 
-  return { isLoading, isError, error }
+  return { isNewHighScore, isLoading, isError, error }
 }

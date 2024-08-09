@@ -15,7 +15,7 @@ export default function HighScoresNavigation() {
               to="/high-scores/easy"
               className={({ isActive }) =>
                 isActive
-                  ? 'high-scores-navigation-link active'
+                  ? 'high-scores-navigation-link active-high-scores'
                   : 'high-scores-navigation-link'
               }
             >
@@ -27,7 +27,7 @@ export default function HighScoresNavigation() {
               to="/high-scores/medium"
               className={({ isActive }) =>
                 isActive
-                  ? 'high-scores-navigation-link active'
+                  ? 'high-scores-navigation-link active-high-scores'
                   : 'high-scores-navigation-link'
               }
             >
@@ -39,7 +39,7 @@ export default function HighScoresNavigation() {
               to="/high-scores/hard"
               className={({ isActive }) =>
                 isActive
-                  ? 'high-scores-navigation-link active'
+                  ? 'high-scores-navigation-link active-high-scores'
                   : 'high-scores-navigation-link'
               }
             >

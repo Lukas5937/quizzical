@@ -41,9 +41,10 @@ export async function sendQuizResultsData(quizResultsData) {
     throw error
   }
 
-  const { highScores } = await response.json()
+  const { highScores, newHighScore } = await response.json()
+  const highScoresData = { highScores, newHighScore }
 
-  return highScores
+  return highScoresData
 }
 
 export async function getHighScores({ signal, difficulty }) {

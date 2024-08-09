@@ -5,6 +5,21 @@
   font-weight: 700;
 }
 
+.congratulations-container {
+  margin: 0.5em 0;
+  color: var(--font-color-green);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.congratulations-text {
+  margin-bottom: 0;
+}
+
 .results-container {
   display: flex;
   gap: 1em;

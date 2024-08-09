@@ -15,3 +15,7 @@
   width: 28em;
   height: 4em;
 }
+
+.red-paragraph {
+  color: var(--accent-color-red);
+}

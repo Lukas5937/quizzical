@@ -73,7 +73,13 @@ export default function QuizGame() {
     <div className="content-container-large">
       <section className="quiz-game-section">
         <h1>Quiz Game</h1>
-        <p className="large-paragraph">You have {timer} seconds left.</p>
+        <p
+          className={
+            timer > 3 ? 'large-paragraph' : 'large-paragraph red-paragraph'
+          }
+        >
+          You have {timer} seconds left.
+        </p>
         {activeQuestion && (
           <Question
             activeQuestion={activeQuestion}

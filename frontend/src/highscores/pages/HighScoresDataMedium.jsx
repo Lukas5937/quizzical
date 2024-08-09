@@ -1,6 +1,6 @@
 import useHighScoreDataFetch from '../hooks/useHighScoreDataFetch'
 import HighScoresTable from '../components/HighScoresTable'
-import LoadingSpinner from '../../UI/LoadingSpinner'
+import CircularProgress from '@mui/material/CircularProgress'
 import ErrorBox from '../../UI/ErrorBox'
 
 export default function HighScoresDataMedium() {
@@ -9,7 +9,7 @@ export default function HighScoresDataMedium() {
   let content
 
   if (isPending) {
-    content = <LoadingSpinner />
+    content = <CircularProgress className="circular-progress" />
   }
 
   if (isError) {

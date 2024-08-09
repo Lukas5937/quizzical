@@ -11,7 +11,8 @@
   font-weight: 500;
 }
 
-.navigation-link:hover {
+.navigation-link:hover,
+.navigation-link:focus {
   color: var(--font-color-green);
 }
 

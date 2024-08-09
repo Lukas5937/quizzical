@@ -5,7 +5,7 @@ import Symbols from '../../UI/Symbols'
 import Input from '../components/Input'
 import CategoryButtons from '../components/CategoryButtons'
 import DifficultyButtons from '../components/DifficultyButtons'
-import LoadingSpinner from '../../UI/LoadingSpinner'
+import CircularProgress from '@mui/material/CircularProgress'
 import ErrorBox from '../../UI/ErrorBox'
 import useQuizSettingsFetch from '../hooks/useQuizSettingsFetch'
 
@@ -61,10 +61,13 @@ export default function QuizSettings() {
                   handleChange={handleChange}
                 />
                 <Button color="accent" size="large">
-                  Start Quiz
+                  {isPending ? (
+                    <CircularProgress className="circular-progress" />
+                  ) : (
+                    'Start game'
+                  )}
                 </Button>
               </form>
-              {isPending && <LoadingSpinner />}
             </>
           )}
           {isError && <ErrorBox error={error} />}
