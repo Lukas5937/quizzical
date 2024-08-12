@@ -1,12 +1,14 @@
 import { NavLink, Outlet } from 'react-router-dom'
 
 import '../pages/HighScores.css'
+import Symbols from '../../UI/Symbols'
 import Footer from '../../UI/Footer'
 
 export default function HighScoresNavigation() {
   return (
     <div className="content-container-large">
       <h1 className="high-scores-heading">High scores</h1>
+      <Symbols size="small" />
       <nav className="high-scores-navigation-container">
         <h3 className="high-scores-navigation-heading">Difficulty:</h3>
         <ul className="high-scores-navigation-links-container">

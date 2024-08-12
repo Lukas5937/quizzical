@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, ScrollRestoration } from 'react-router-dom'
 import './Navigation.css'
 
 export default function Navigation() {
@@ -43,6 +43,7 @@ export default function Navigation() {
       <main>
         <Outlet />
       </main>
+      <ScrollRestoration />
     </>
   )
 }

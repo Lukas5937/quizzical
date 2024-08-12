@@ -33,15 +33,15 @@ export default function Home() {
           <h1 className="home-heading">Quizzical</h1>
           <Symbols size="large" />
           <h2 className="home-subtitle">Let the games begin!</h2>
-          <div className="home-paragraphs-container">
-            <p className="no-margin">
+          <div className="home-paragraph-container">
+            <p className="home-paragraph">
               Welcome to Quizzical, your one-stop hub for a trivia extravaganza.
               This ain&#39;t your ordinary quiz app. This is your ticket to a
               world where knowledge is power, and power means bragging rights!
               Get ready to embark on a journey filled with intriguing questions
               and fascinating facts that will challenge your intellect.
             </p>
-            <p className="no-margin">
+            <p className="home-paragraph">
               Navigate through our diverse quiz settings, selecting from a range
               of topics that pique your interest. Or, if you&#39;re feeling
               adventurous, dive straight into the game of wits and put your
@@ -52,7 +52,7 @@ export default function Home() {
           </div>
         </header>
         <section>
-          <div className="home-paragraphs-container">
+          <div className="home-paragraph-container">
             <div className="light-card">
               <h3>Ready to begin?</h3>
               <p>

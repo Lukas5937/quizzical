@@ -1,11 +1,11 @@
 export default function Symbol({ image, alt, size }) {
-  let imageSize
+  let cssClasses
   if (size === 'large') {
-    imageSize = '84'
+    cssClasses = 'symbol-large'
   }
   if (size === 'small') {
-    imageSize = '36'
+    cssClasses = 'symbol-small'
   }
 
-  return <img src={image} alt={alt} width={imageSize} height={imageSize} />
+  return <img src={image} alt={alt} className={cssClasses} />
 }

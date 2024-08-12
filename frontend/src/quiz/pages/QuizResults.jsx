@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import he from 'he'
 import { QuestionsContext } from '../../context/QuestionsContext'
 import { ResultsContext } from '../../context/ResultsContext'
@@ -10,6 +9,7 @@ import Symbol from '../../UI/Symbol'
 import Congratulations from '../../assets/Symbols/Congratulations.svg'
 import CircularProgress from '@mui/material/CircularProgress'
 import ErrorBox from '../../UI/ErrorBox'
+import Button from '../../UI/Button'
 import Footer from '../../UI/Footer'
 
 import './QuizResults.css'
@@ -43,8 +43,6 @@ export default function QuizResults() {
     isError: isErrorSettings,
     error: errorSettings,
   } = useQuizSettingsFetch()
-
-  console.log(isNewHighScore.current)
 
   const results = questions.map((question) => {
     const isCorrect = question.userAnswer === question['correct_answer']
@@ -111,7 +109,7 @@ export default function QuizResults() {
 
               <ul>{results}</ul>
               <div className="results-buttons-container">
-                <Link
+                <Button
                   onClick={handleSubmitSettings}
                   className="button accent-button"
                 >
@@ -120,16 +118,16 @@ export default function QuizResults() {
                   ) : (
                     'Play again'
                   )}
-                </Link>
-                <Link to={'/quiz/settings'} className="button">
+                </Button>
+                <Button to={'/quiz/settings'} className="button">
                   Change Quiz Settings
-                </Link>
-                <Link
+                </Button>
+                <Button
                   to={`/high-scores/${questions[0].difficulty}`}
                   className="button"
                 >
                   Watch High Scores
-                </Link>
+                </Button>
               </div>
             </>
           )}

@@ -1,59 +1,95 @@
 import CategoryButton from './CategoryButton'
-import General from '../../assets/Categories/General.svg'
-import Science from '../../assets/Categories/Science.svg'
-import Sports from '../../assets/Categories/Sports.svg'
-import Geography from '../../assets/Categories/Geography.svg'
-import History from '../../assets/Categories/History.svg'
-import Animals from '../../assets/Categories/Animals.svg'
+import GeneralIcon from '../../assets/Categories/GeneralIcon.jsx'
+import ScienceIcon from '../../assets/Categories/ScienceIcon.jsx'
+import SportsIcon from '../../assets/Categories/SportsIcon.jsx'
+import GeographyIcon from '../../assets/Categories/GeographyIcon.jsx'
+import HistoryIcon from '../../assets/Categories/HistoryIcon.jsx'
+import AnimalsIcon from '../../assets/Categories/AnimalsIcon.jsx'
 
-export default function CategoryButtons({ settingsData, handleChange }) {
+export default function CategoryButtons({
+  settingsData,
+  handleChange,
+  margin,
+}) {
   return (
     <>
-      <fieldset className="input-container">
+      <fieldset className={`input-container ${margin && 'input-margin'}`}>
         <legend>Select a quiz category from the options below</legend>
-        <div className="radio-buttons-container">
+        <div className="category-buttons-container">
           <CategoryButton
             value="general-knowledge"
             label="General knowledge"
             isChecked={settingsData.category === 'general-knowledge'}
             onChange={handleChange}
-            img={General}
-          />
+          >
+            <GeneralIcon
+              color={
+                settingsData.category === 'general-knowledge'
+                  ? '#95bca6'
+                  : '#BABDE6'
+              }
+            />
+          </CategoryButton>
           <CategoryButton
             value="science-and-nature"
             label="Science + Nature"
             isChecked={settingsData.category === 'science-and-nature'}
             onChange={handleChange}
-            img={Science}
-          />
+          >
+            <ScienceIcon
+              color={
+                settingsData.category === 'science-and-nature'
+                  ? '#95bca6'
+                  : '#BABDE6'
+              }
+            />
+          </CategoryButton>
           <CategoryButton
             value="sports"
             label="Sports"
             isChecked={settingsData.category === 'sports'}
             onChange={handleChange}
-            img={Sports}
-          />
+          >
+            <SportsIcon
+              color={settingsData.category === 'sports' ? '#95bca6' : '#BABDE6'}
+            />
+          </CategoryButton>
           <CategoryButton
             value="geography"
             label="Geography"
             isChecked={settingsData.category === 'geography'}
             onChange={handleChange}
-            img={Geography}
-          />
+          >
+            <GeographyIcon
+              color={
+                settingsData.category === 'geography' ? '#95bca6' : '#BABDE6'
+              }
+            />
+          </CategoryButton>
           <CategoryButton
             value="history"
             label="History"
             isChecked={settingsData.category === 'history'}
             onChange={handleChange}
-            img={History}
-          />
+          >
+            <HistoryIcon
+              color={
+                settingsData.category === 'history' ? '#95bca6' : '#BABDE6'
+              }
+            />
+          </CategoryButton>
           <CategoryButton
             value="animals"
             label="Animals"
             isChecked={settingsData.category === 'animals'}
             onChange={handleChange}
-            img={Animals}
-          />
+          >
+            <AnimalsIcon
+              color={
+                settingsData.category === 'animals' ? '#95bca6' : '#BABDE6'
+              }
+            />
+          </CategoryButton>
         </div>
       </fieldset>
     </>

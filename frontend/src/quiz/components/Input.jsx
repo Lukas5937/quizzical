@@ -1,7 +1,7 @@
 export default function Input({ name, value, label, onChange }) {
   return (
     <>
-      <div className="input-container">
+      <div className="input-container input-margin">
         <label className="input-label" htmlFor={name}>
           {label}
         </label>

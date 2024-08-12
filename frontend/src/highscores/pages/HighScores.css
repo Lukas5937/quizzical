@@ -1,3 +1,7 @@
+.high-score-section {
+  overflow: auto;
+}
+
 .high-scores-heading {
   text-align: center;
 }
@@ -7,24 +11,26 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
+  gap: 4em;
 }
 
 .high-scores-navigation-heading {
   font-family: 'Manrope', sans-serif;
   color: var(--font-color);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .high-scores-navigation-links-container {
   display: flex;
   gap: 2em;
+  margin-top: 2em;
 }
 
 .high-scores-navigation-link {
   color: var(--font-color);
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .high-scores-navigation-link:hover,
@@ -39,18 +45,50 @@
 }
 
 .high-scores-table {
-  margin: 3em auto 0;
+  margin: 1.5em auto 0;
   width: 100%;
-  border-spacing: 1em;
+  border-spacing: 0 2.5em;
+  overflow: scroll;
 }
 
 .high-scores-table-th {
   color: var(--font-headings-color);
-  /* text-align: start; */
 }
 
-td,
-tr {
-  width: 2em;
+td {
+  min-width: 8em;
   text-align: center;
+}
+
+@media (max-width: 640px) {
+  .high-scores-navigation-container {
+    gap: 3em;
+  }
+  .high-scores-navigation-heading {
+    font-size: 1.25rem;
+  }
+  .high-scores-navigation-link {
+    font-size: 1.25rem;
+  }
+  td {
+    min-width: 6em;
+  }
+}
+
+@media (max-width: 480px) {
+  .high-scores-navigation-container {
+    gap: 2em;
+  }
+  .high-scores-navigation-heading {
+    font-size: 1.125rem;
+  }
+  .high-scores-navigation-links-container {
+    gap: 1em;
+  }
+  .high-scores-navigation-link {
+    font-size: 1.125rem;
+  }
+  td {
+    min-width: 5em;
+  }
 }

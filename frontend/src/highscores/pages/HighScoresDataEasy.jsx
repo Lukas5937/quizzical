@@ -19,6 +19,6 @@ export default function HighScoresDataEasy() {
   if (data) {
     content = <HighScoresTable highScoreData={data} />
 
-    return <section>{content}</section>
+    return <section className="high-score-section">{content}</section>
   }
 }

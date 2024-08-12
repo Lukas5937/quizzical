@@ -55,6 +55,7 @@ export default function QuizSettings() {
                 <CategoryButtons
                   settingsData={settingsData}
                   handleChange={handleChange}
+                  margin
                 />
                 <DifficultyButtons
                   settingsData={settingsData}

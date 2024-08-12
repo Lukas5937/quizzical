@@ -16,7 +16,9 @@ export default function DifficultyButton({
         required
       />
       <label
-        className={`button small-button ${!isChecked && 'light-button'}`}
+        className={`button small-button difficulty-button ${
+          !isChecked && 'light-button'
+        }`}
         htmlFor={value}
       >
         {label}

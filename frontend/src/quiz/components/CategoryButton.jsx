@@ -1,9 +1,9 @@
 export default function CategoryButton({
   value,
-  img,
   label,
   isChecked,
   onChange,
+  children,
 }) {
   return (
     <div className="category-button-container">
@@ -18,7 +18,7 @@ export default function CategoryButton({
       />
       <label htmlFor={value}>
         <div className="category-button-label-container">
-          <img className="category-button-image" src={img} alt={label} />
+          {children}
           <p>{label}</p>
         </div>
       </label>

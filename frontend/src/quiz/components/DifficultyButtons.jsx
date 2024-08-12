@@ -2,9 +2,9 @@ import DifficultyButton from './DifficultyButton'
 
 export default function DifficultyButtons({ settingsData, handleChange }) {
   return (
-    <fieldset className="input-container">
+    <fieldset className="input-container input-margin">
       <legend>Choose the difficulty level for your quiz questions</legend>
-      <div className="radio-buttons-container">
+      <div className="difficulty-buttons-container">
         <DifficultyButton
           value="easy"
           label="Easy"

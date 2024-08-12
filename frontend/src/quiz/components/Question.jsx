@@ -31,7 +31,7 @@ export default function Question({
   ))
   return (
     <>
-      <h3>{he.decode(activeQuestion.question)}</h3>
+      <h3 className="question-text">{he.decode(activeQuestion.question)}</h3>
       <ul className="answers-container">{answers}</ul>
     </>
   )

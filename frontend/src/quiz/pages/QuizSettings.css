@@ -3,3 +3,118 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* ========== Form elements ========== */
+
+.form {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+legend,
+.input-label {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+legend {
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.input-margin {
+  margin-bottom: 1.75em;
+}
+
+.text-input {
+  margin-bottom: 0.75em;
+  background-color: var(--bg-color-light);
+  border: none;
+  border-radius: 4px;
+  height: 2.5em;
+  width: 24em;
+  max-width: 90%;
+  padding: 0 0.5em;
+  color: var(--font-color);
+  font-size: 1.125rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+fieldset {
+  border: 0;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.category-buttons-container,
+.difficulty-buttons-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4em, 1fr));
+  justify-items: center;
+  gap: 1em;
+  font-size: 0.875rem;
+  line-height: 1em;
+}
+
+.category-button-container {
+  max-width: 4em;
+  text-align: center;
+}
+
+.category-button-label-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.category-button-label-container:hover {
+  cursor: pointer;
+}
+
+.category-button-image {
+  width: 3em;
+  height: 3em;
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 680px) {
+  .category-buttons-container {
+    grid-template-columns: repeat(3, max-content);
+    gap: 2em 3em;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-input {
+    width: 16em;
+  }
+
+  .category-buttons-container {
+    grid-template-columns: repeat(2, max-content);
+    gap: 2em 3em;
+    margin-top: 1em;
+  }
+  .difficulty-buttons-container {
+    grid-template-columns: 1fr;
+  }
+  .difficulty-button {
+    text-align: center;
+    width: 15em;
+  }
+}

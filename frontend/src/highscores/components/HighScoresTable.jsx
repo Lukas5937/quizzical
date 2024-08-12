@@ -8,7 +8,7 @@ export default function HighScoresTable({ highScoreData }) {
         <td>{results.userName}</td>
         <td>{results.correctAnswers} /10</td>
         <td>{results.duration} sec</td>
-        <td>{results.category}</td>
+        <td>{results.category.split('-').join(' ')}</td>
         <td>{results.difficulty}</td>
         <td>{results.date}</td>
       </tr>

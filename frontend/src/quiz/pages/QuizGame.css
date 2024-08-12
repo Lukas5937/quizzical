@@ -19,3 +19,31 @@
 .red-paragraph {
   color: var(--accent-color-red);
 }
+
+@media (max-width: 1280px) {
+  .answer-button {
+    width: 22em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .question-text {
+    text-align: center;
+  }
+  .answer-button {
+    width: 14em;
+  }
+}
+
+@media (max-width: 640px) {
+  .answers-container {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 1.25em;
+    justify-items: stretch;
+  }
+  .answer-button {
+    width: 100%;
+    height: 4em;
+  }
+}
