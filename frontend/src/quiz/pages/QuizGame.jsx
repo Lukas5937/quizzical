@@ -80,6 +80,7 @@ export default function QuizGame() {
         >
           You have {timer} seconds left.
         </p>
+
         {activeQuestion && (
           <Question
             activeQuestion={activeQuestion}

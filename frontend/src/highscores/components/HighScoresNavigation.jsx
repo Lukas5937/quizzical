@@ -18,6 +18,7 @@ export default function HighScoresNavigation() {
           <li>
             <NavLink
               to="/high-scores/easy"
+              preventScrollReset
               className={({ isActive }) =>
                 isActive
                   ? 'high-scores-navigation-link active-high-scores'
@@ -30,6 +31,7 @@ export default function HighScoresNavigation() {
           <li>
             <NavLink
               to="/high-scores/medium"
+              preventScrollReset
               className={({ isActive }) =>
                 isActive
                   ? 'high-scores-navigation-link active-high-scores'
@@ -42,6 +44,7 @@ export default function HighScoresNavigation() {
           <li>
             <NavLink
               to="/high-scores/hard"
+              preventScrollReset
               className={({ isActive }) =>
                 isActive
                   ? 'high-scores-navigation-link active-high-scores'

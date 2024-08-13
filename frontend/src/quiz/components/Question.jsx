@@ -1,4 +1,5 @@
 import he from 'he'
+import { motion } from 'framer-motion'
 import AnswerButton from './AnswerButton'
 
 export default function Question({
@@ -30,9 +31,14 @@ export default function Question({
     </li>
   ))
   return (
-    <>
+    <motion.div
+      key={activeQuestion.question}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.1, type: 'tween' }}
+    >
       <h3 className="question-text">{he.decode(activeQuestion.question)}</h3>
       <ul className="answers-container">{answers}</ul>
-    </>
+    </motion.div>
   )
 }

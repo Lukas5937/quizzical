@@ -59,8 +59,8 @@ fieldset {
   position: absolute;
 }
 
-.radio-button:focus + label .category-button-label-container,
-.radio-button:focus + label {
+.radio-button:focus-visible + label .category-button-label-container,
+.radio-button:focus-visible + label {
   outline: 2px solid #015ecc;
 }
 

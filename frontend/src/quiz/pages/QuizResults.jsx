@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import he from 'he'
+import { motion, AnimatePresence } from 'framer-motion'
+
 import { QuestionsContext } from '../../context/QuestionsContext'
 import { ResultsContext } from '../../context/ResultsContext'
 import useQuizResultsFetch from '../hooks/useQuizResultsFetch'
@@ -46,21 +48,20 @@ export default function QuizResults() {
 
   const results = questions.map((question) => {
     const isCorrect = question.userAnswer === question['correct_answer']
-
     return (
       <li key={question.question}>
-        <div className="results-container">
+        <div className="result-container">
           <img
-            className="results-icon"
+            className="result-icon"
             src={isCorrect ? Checked : Crossed}
             alt={isCorrect ? 'Check mark' : 'Cross mark'}
           />
-          <div className="results-question-container">
-            <p className="results-question">{he.decode(question.question)}</p>
+          <div className="result-question-container">
+            <p className="result-question">{he.decode(question.question)}</p>
             {isCorrect ? (
-              <div className="results-answers-container">
-                <p className="results-answer bold-text">Your answer: </p>
-                <p className="results-answer">
+              <div className="result-answers-container">
+                <p className="result-answer bold-text">Your answer: </p>
+                <p className="result-answer">
                   {he.decode(question.userAnswer)}
                 </p>
               </div>
@@ -85,52 +86,70 @@ export default function QuizResults() {
   return (
     <div className="content-container-large">
       <section className="quiz-results-section">
-        {showIntroText && <h2>You completed the Quiz!</h2>}
-        {!showIntroText &&
-          !isErrorResults &&
-          !isErrorSettings &&
-          !isLoadingResults && (
-            <>
-              <h1>Your results</h1>
-              <Symbols size="small" />
-              {isNewHighScore.current && (
-                <div className="congratulations-container">
-                  <p className="congratulations-text">
-                    {' '}
-                    Congratulations! You created a new high score!
-                  </p>
-                  <Symbol image={Congratulations} size="large" alt="Trophy" />
-                </div>
-              )}
-              <p className="large-paragraph">
-                {numberOfCorrectAnswers.current}/{questions.length} correct
-                answers
-              </p>
-
-              <ul>{results}</ul>
-              <div className="results-buttons-container">
-                <Button
-                  onClick={handleSubmitSettings}
-                  className="button accent-button"
-                >
-                  {isPendingSettings ? (
-                    <CircularProgress className="circular-progress" />
-                  ) : (
-                    'Play again'
-                  )}
-                </Button>
-                <Button to={'/quiz/settings'} className="button">
-                  Change Quiz Settings
-                </Button>
-                <Button
-                  to={`/high-scores/${questions[0].difficulty}`}
-                  className="button"
-                >
-                  Watch High Scores
-                </Button>
-              </div>
-            </>
+        <AnimatePresence>
+          {showIntroText && (
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2, type: 'tween' }}
+            >
+              You completed the Quiz!
+            </motion.h2>
           )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {!showIntroText &&
+            !isErrorResults &&
+            !isErrorSettings &&
+            !isLoadingResults && (
+              <motion.div
+                className="quiz-results-content"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.2, type: 'tween' }}
+              >
+                <h1>Your results</h1>
+                <Symbols size="small" />
+                {isNewHighScore.current && (
+                  <div className="congratulations-container">
+                    <p className="congratulations-text">
+                      {' '}
+                      Congratulations! You created a new high score!
+                    </p>
+                    <Symbol image={Congratulations} size="large" alt="Trophy" />
+                  </div>
+                )}
+                <p className="large-paragraph">
+                  {numberOfCorrectAnswers.current}/{questions.length} correct
+                  answers
+                </p>
+
+                <ul className="results-container">{results}</ul>
+                <div className="results-buttons-container">
+                  <Button
+                    onClick={handleSubmitSettings}
+                    className="button accent-button"
+                  >
+                    {isPendingSettings ? (
+                      <CircularProgress className="circular-progress" />
+                    ) : (
+                      'Play again'
+                    )}
+                  </Button>
+                  <Button to={'/quiz/settings'} className="button">
+                    Change Quiz Settings
+                  </Button>
+                  <Button
+                    to={`/high-scores/${questions[0].difficulty}`}
+                    className="button"
+                  >
+                    Watch High Scores
+                  </Button>
+                </div>
+              </motion.div>
+            )}
+        </AnimatePresence>
       </section>
       {!showIntroText && !isErrorResults && !isErrorSettings && <Footer />}
       {isLoadingResults && <CircularProgress className="circular-progress" />}

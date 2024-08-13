@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 export default function HighScoresTable({ highScoreData }) {
   let rank = 0
   const tableBody = highScoreData.map((results) => {
@@ -16,7 +18,12 @@ export default function HighScoresTable({ highScoreData }) {
   })
 
   return (
-    <table className="high-scores-table">
+    <motion.table
+      className="high-scores-table"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2, type: 'tween' }}
+    >
       <thead>
         <tr>
           <th className="high-scores-table-th" scope="col">
@@ -43,6 +50,6 @@ export default function HighScoresTable({ highScoreData }) {
         </tr>
       </thead>
       <tbody>{tableBody}</tbody>
-    </table>
+    </motion.table>
   )
 }
