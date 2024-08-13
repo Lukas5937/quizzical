@@ -54,8 +54,14 @@ fieldset {
   border: 0;
 }
 
-input[type='radio'] {
-  display: none;
+.radio-button {
+  opacity: 0;
+  position: absolute;
+}
+
+.radio-button:focus + label .category-button-label-container,
+.radio-button:focus + label {
+  outline: 2px solid #015ecc;
 }
 
 .category-buttons-container,

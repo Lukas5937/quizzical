@@ -8,6 +8,7 @@ export default function CategoryButton({
   return (
     <div className="category-button-container">
       <input
+        className="radio-button"
         type="radio"
         id={value}
         name="category"

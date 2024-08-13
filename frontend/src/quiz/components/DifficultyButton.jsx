@@ -7,6 +7,7 @@ export default function DifficultyButton({
   return (
     <>
       <input
+        className="radio-button"
         type="radio"
         id={value}
         name="difficulty"

@@ -9,7 +9,10 @@ export default function HighScoresNavigation() {
     <div className="content-container-large">
       <h1 className="high-scores-heading">High scores</h1>
       <Symbols size="small" />
-      <nav className="high-scores-navigation-container">
+      <nav
+        className="high-scores-navigation-container"
+        aria-label="high score navigation"
+      >
         <h3 className="high-scores-navigation-heading">Difficulty:</h3>
         <ul className="high-scores-navigation-links-container">
           <li>
