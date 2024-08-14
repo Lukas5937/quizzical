@@ -66,16 +66,18 @@ export default function QuizResults() {
                 </p>
               </div>
             ) : (
-              <div className="results-answers-container">
-                <p className="results-answer bold-text">Your answer: </p>
-                <p className="results-answer">
-                  {he.decode(question.userAnswer)}
-                </p>
-                <p className="results-answer bold-text">Correct answer: </p>
-                <p className="results-answer">
-                  {he.decode(question['correct_answer'])}
-                </p>
-              </div>
+              <>
+                <div className="result-answers-container">
+                  <p className="results-answer bold-text">Your answer: </p>
+                  <p className="results-answer">
+                    {he.decode(question.userAnswer)}
+                  </p>
+                  <p className="results-answer bold-text">Correct answer: </p>
+                  <p className="results-answer">
+                    {he.decode(question['correct_answer'])}
+                  </p>
+                </div>
+              </>
             )}
           </div>
         </div>
