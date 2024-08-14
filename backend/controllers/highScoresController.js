@@ -95,9 +95,9 @@ export const createNewHighScore = async (req, res, next) => {
       return next(error)
     }
 
-    res.status(201).json({ highScores })
+    res.status(201).json({ highScores, newHighScore: true })
   } else {
-    res.status(200).json({ highScores })
+    res.status(200).json({ highScores, newHighScore: false })
   }
 }
 
