@@ -9,7 +9,7 @@ import Footer from './UI/Footer'
 import './Home.css'
 
 export default function Home() {
-  const { settingsData, handleChange, setSettingsData } =
+  const { settingsData, handleChange, setSettingsData, formIsInvalid } =
     useContext(SettingsContext)
   const navigate = useNavigate()
 
@@ -85,6 +85,7 @@ export default function Home() {
             <CategoryButtons
               settingsData={settingsData}
               handleChange={handleClick}
+              formIsInvalid={formIsInvalid}
             />
           </div>
         </section>

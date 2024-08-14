@@ -1,6 +1,10 @@
 import DifficultyButton from './DifficultyButton'
 
-export default function DifficultyButtons({ settingsData, handleChange }) {
+export default function DifficultyButtons({
+  settingsData,
+  handleChange,
+  formIsInvalid,
+}) {
   return (
     <fieldset className="input-container input-margin">
       <legend>Choose the difficulty level for your quiz questions</legend>
@@ -24,6 +28,9 @@ export default function DifficultyButtons({ settingsData, handleChange }) {
           onChange={handleChange}
         />
       </div>
+      {formIsInvalid.difficulty && (
+        <p className="invalid-data-text">Please select a difficulty.</p>
+      )}
     </fieldset>
   )
 }

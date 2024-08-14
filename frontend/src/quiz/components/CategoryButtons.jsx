@@ -10,7 +10,10 @@ export default function CategoryButtons({
   settingsData,
   handleChange,
   margin,
+  formIsInvalid,
 }) {
+  console.log(formIsInvalid)
+
   return (
     <>
       <fieldset className={`input-container ${margin && 'input-margin'}`}>
@@ -91,6 +94,11 @@ export default function CategoryButtons({
             />
           </CategoryButton>
         </div>
+        {formIsInvalid.category && (
+          <p className="invalid-data-text category-validation">
+            Please select a category.
+          </p>
+        )}
       </fieldset>
     </>
   )

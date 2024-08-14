@@ -15,7 +15,6 @@ export default function CategoryButton({
         value={value}
         checked={isChecked}
         onChange={onChange}
-        required
       />
       <label htmlFor={value}>
         <div className="category-button-label-container">

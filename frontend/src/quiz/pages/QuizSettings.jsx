@@ -13,8 +13,13 @@ import './QuizSettings.css'
 import Footer from '../../UI/Footer'
 
 export default function QuizSettings() {
-  const { settingsData, setSettingsData, handleChange } =
-    useContext(SettingsContext)
+  const {
+    settingsData,
+    setSettingsData,
+    handleChange,
+    userNameEdited,
+    onInputBlur,
+  } = useContext(SettingsContext)
   const initialRender = useRef(true)
 
   useEffect(() => {
@@ -35,7 +40,14 @@ export default function QuizSettings() {
     }
   }, [settingsData, setSettingsData])
 
-  const { handleSubmit, isPending, isError, error } = useQuizSettingsFetch()
+  const {
+    handleSubmit,
+    isPending,
+    isError,
+    error,
+    formIsInvalid,
+    invalidUserName,
+  } = useQuizSettingsFetch()
 
   return (
     <>
@@ -51,15 +63,21 @@ export default function QuizSettings() {
                   value={settingsData.userName}
                   label="Please provide a username to personalize your quiz experience"
                   onChange={handleChange}
+                  onBlur={onInputBlur}
+                  didEdit={userNameEdited}
+                  invalidUserName={invalidUserName}
+                  formIsInvalid={formIsInvalid}
                 />
                 <CategoryButtons
                   settingsData={settingsData}
                   handleChange={handleChange}
                   margin
+                  formIsInvalid={formIsInvalid}
                 />
                 <DifficultyButtons
                   settingsData={settingsData}
                   handleChange={handleChange}
+                  formIsInvalid={formIsInvalid}
                 />
                 <Button color="accent" size="large">
                   {isPending ? (

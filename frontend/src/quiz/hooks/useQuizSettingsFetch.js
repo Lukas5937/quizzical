@@ -6,7 +6,8 @@ import { SettingsContext } from '../../context/SettingsContext'
 import { sendQuizSettingsData } from '../../util/http'
 
 export default function useQuizSettingsFetch() {
-  const { settingsData } = useContext(SettingsContext)
+  const { settingsData, formIsInvalid, setFormIsInvalid } =
+    useContext(SettingsContext)
   const { setQuestions } = useContext(QuestionsContext)
   const navigate = useNavigate()
 
@@ -34,10 +35,45 @@ export default function useQuizSettingsFetch() {
     },
   })
 
+  const invalidUserName =
+    settingsData.userName.length < 5 || settingsData.userName.length > 20
+  const invalidCategory = settingsData.category === ''
+  const invalidDifficulty = settingsData.difficulty === ''
+
   function handleSubmit(event) {
     event.preventDefault()
-    mutate(settingsData)
+    setFormIsInvalid({
+      userName: false,
+      category: false,
+      difficulty: false,
+    })
+
+    if (invalidUserName) {
+      setFormIsInvalid((prevState) => {
+        return { ...prevState, userName: true }
+      })
+    }
+    if (invalidCategory) {
+      setFormIsInvalid((prevState) => {
+        return { ...prevState, category: true }
+      })
+    }
+    if (invalidDifficulty) {
+      setFormIsInvalid((prevState) => {
+        return { ...prevState, difficulty: true }
+      })
+    }
+    if (!invalidUserName && !invalidCategory && !invalidDifficulty) {
+      mutate(settingsData)
+    }
   }
 
-  return { handleSubmit, isPending, isError, error }
+  return {
+    handleSubmit,
+    isPending,
+    isError,
+    error,
+    formIsInvalid,
+    invalidUserName,
+  }
 }

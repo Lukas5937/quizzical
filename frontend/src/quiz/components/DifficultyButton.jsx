@@ -14,7 +14,6 @@ export default function DifficultyButton({
         value={value}
         checked={isChecked}
         onChange={onChange}
-        required
       />
       <label
         className={`button small-button difficulty-button ${
