@@ -13,7 +13,10 @@ export default function Footer() {
         <FooterLink img={InstagramLogo} alt="Instagram" />
         <FooterLink img={DiscordLogo} alt="Discord" />
       </div>
-      <p>© 2024 All Rights Reserved to Quizzical Co.</p>
+      <p>
+        Stay connected with us! Follow us on social media for the latest updates
+        and more.
+      </p>
     </footer>
   )
 }

@@ -126,7 +126,6 @@ fieldset {
   .text-input {
     width: 16em;
   }
-
   .category-buttons-container {
     grid-template-columns: repeat(2, max-content);
     gap: 2em 3em;
@@ -138,5 +137,11 @@ fieldset {
   .difficulty-button {
     text-align: center;
     width: 15em;
+  }
+}
+
+@media (max-width: 369px) {
+  .push-down {
+    bottom: -3.25em;
   }
 }

@@ -1,15 +1,4 @@
-export default function Input({
-  name,
-  value,
-  label,
-  onChange,
-  onBlur,
-  didEdit,
-  invalidUserName,
-  formIsInvalid,
-}) {
-  console.log(invalidUserName)
-  console.log(didEdit)
+export default function Input({ name, value, label, onChange, formIsInvalid }) {
   return (
     <>
       <div className="input-container input-margin">
@@ -23,12 +12,11 @@ export default function Input({
           name={name}
           value={value}
           onChange={onChange}
-          onBlur={onBlur}
         />
-        {(invalidUserName && didEdit) || formIsInvalid.userName ? (
+        {formIsInvalid.userName ? (
           <p className="invalid-data-text push-down">
             {value.length > 20
-              ? 'Username must be no more than 20 characters long.'
+              ? 'Username must be a max. of 20 characters.'
               : 'Username must be at least 5 characters long.'}
           </p>
         ) : null}

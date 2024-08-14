@@ -65,6 +65,11 @@ export default function useQuizSettingsFetch() {
     }
     if (!invalidUserName && !invalidCategory && !invalidDifficulty) {
       mutate(settingsData)
+      setFormIsInvalid({
+        userName: false,
+        category: false,
+        difficulty: false,
+      })
     }
   }
 
@@ -74,6 +79,6 @@ export default function useQuizSettingsFetch() {
     isError,
     error,
     formIsInvalid,
-    invalidUserName,
+    setFormIsInvalid,
   }
 }

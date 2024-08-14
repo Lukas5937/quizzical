@@ -13,18 +13,29 @@ import './QuizSettings.css'
 import Footer from '../../UI/Footer'
 
 export default function QuizSettings() {
-  const {
-    settingsData,
-    setSettingsData,
-    handleChange,
-    userNameEdited,
-    onInputBlur,
-  } = useContext(SettingsContext)
+  const { settingsData, setSettingsData, handleChange } =
+    useContext(SettingsContext)
   const initialRender = useRef(true)
+
+  const {
+    handleSubmit,
+    isPending,
+    isError,
+    error,
+    formIsInvalid,
+    setFormIsInvalid,
+  } = useQuizSettingsFetch()
 
   useEffect(() => {
     if (initialRender.current) {
       initialRender.current = false
+
+      setFormIsInvalid({
+        userName: false,
+        category: false,
+        difficulty: false,
+      })
+
       const initialResetNeeded =
         settingsData.category &&
         !settingsData.userName &&
@@ -38,16 +49,7 @@ export default function QuizSettings() {
         })
       }
     }
-  }, [settingsData, setSettingsData])
-
-  const {
-    handleSubmit,
-    isPending,
-    isError,
-    error,
-    formIsInvalid,
-    invalidUserName,
-  } = useQuizSettingsFetch()
+  }, [settingsData, setSettingsData, setFormIsInvalid])
 
   return (
     <>
@@ -63,9 +65,6 @@ export default function QuizSettings() {
                   value={settingsData.userName}
                   label="Please provide a username to personalize your quiz experience"
                   onChange={handleChange}
-                  onBlur={onInputBlur}
-                  didEdit={userNameEdited}
-                  invalidUserName={invalidUserName}
                   formIsInvalid={formIsInvalid}
                 />
                 <CategoryButtons
