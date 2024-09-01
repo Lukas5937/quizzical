@@ -32,10 +32,12 @@ export const createNewHighScore = async (req, res, next) => {
 
   const HighScoreCollection = getHighScoresCollection(difficulty)
 
-  const highScores = await fetchHighScoresData(
-    HighScoreCollection,
-    sortedFetching
-  )
+  let highScores
+  try {
+    highScores = await fetchHighScoresData(HighScoreCollection, sortedFetching)
+  } catch (error) {
+    return next(error)
+  }
 
   function checkIsHighScore(highScores, correctAnswers, duration) {
     const isShortList = highScores.length < 10
@@ -105,10 +107,13 @@ export const getHighScores = async (req, res, next) => {
   const { difficulty } = req.query
 
   const HighScoreCollection = getHighScoresCollection(difficulty)
-  const highScores = await fetchHighScoresData(
-    HighScoreCollection,
-    unsortedFetching
-  )
-
-  res.status(200).json({ highScores })
+  try {
+    const highScores = await fetchHighScoresData(
+      HighScoreCollection,
+      unsortedFetching
+    )
+    res.status(200).json({ highScores })
+  } catch (error) {
+    return next(error)
+  }
 }

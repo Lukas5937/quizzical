@@ -7,11 +7,7 @@ export default async function fetchQuestionsData(category, difficulty) {
   const response = await axios.get(url)
   const data = response.data
   if (!data) {
-    const error = new HttpError(
-      'Could not find questions data for your request.',
-      422
-    )
-    throw error
+    throw new HttpError('Could not find questions data for your request.', 422)
   }
 
   return data.results

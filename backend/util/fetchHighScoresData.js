@@ -25,19 +25,17 @@ export async function fetchHighScoresData(HighScoreCollection, fetchingType) {
   try {
     highScores = fetchingType(HighScoreCollection)
   } catch (err) {
-    const error = new HttpError(
+    throw new HttpError(
       'Something went wrong, could not find the high score data.',
       500
     )
-    return next(error)
   }
 
   if (!highScores) {
-    const error = new HttpError(
+    throw new HttpError(
       'Could not find high score data, please try again.',
       404
     )
-    return next(error)
   }
   return highScores
 }
