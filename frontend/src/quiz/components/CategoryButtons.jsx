@@ -12,8 +12,6 @@ export default function CategoryButtons({
   margin,
   formIsInvalid,
 }) {
-  console.log(formIsInvalid)
-
   return (
     <>
       <fieldset className={`input-container ${margin && 'input-margin'}`}>

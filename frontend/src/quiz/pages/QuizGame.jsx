@@ -9,7 +9,7 @@ import './QuizGame.css'
 export default function QuizGame() {
   const { questions, setQuestions } = useContext(QuestionsContext)
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0)
-  const [timer, setTimer] = useState(15)
+  const [timer, setTimer] = useState(10)
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const { gameDuration } = useContext(ResultsContext)
   const navigate = useNavigate()
@@ -36,7 +36,7 @@ export default function QuizGame() {
       setTimeout(() => {
         setActiveQuestionIndex((prevIndex) => prevIndex + 1)
         setButtonDisabled(false)
-        setTimer(15)
+        setTimer(10)
       }, 2000)
     },
     [addUserAnswerToQuestions]
