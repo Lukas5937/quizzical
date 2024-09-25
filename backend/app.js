@@ -3,6 +3,9 @@ import mongoose from 'mongoose'
 import HttpError from './models/httpError.js'
 import quizRoutes from './routes/quizRoutes.js'
 import highScoresRoutes from './routes/highScoresRoutes.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const app = express()
 const PORT = 4000
@@ -39,9 +42,7 @@ app.use((error, req, res, next) => {
 })
 
 mongoose
-  .connect(
-    'mongodb+srv://lukasreich:qGC9S8QMFRrBVtu9@cluster0.2fkgv2w.mongodb.net/high-scores?retryWrites=true&w=majority&appName=Cluster0'
-  )
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log('Connected to database.')
     app.listen(PORT, (err) => {

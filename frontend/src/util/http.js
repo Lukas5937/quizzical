@@ -1,9 +1,11 @@
 import { QueryClient } from '@tanstack/react-query'
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL
+
 export const queryClient = new QueryClient()
 
 export async function sendQuizSettingsData(quizSettingsData) {
-  const response = await fetch(`http://localhost:4000/api/v1/quiz/questions`, {
+  const response = await fetch(`${backendUrl}/quiz/questions`, {
     method: 'POST',
     body: JSON.stringify(quizSettingsData),
     headers: {
@@ -26,7 +28,7 @@ export async function sendQuizSettingsData(quizSettingsData) {
 }
 
 export async function sendQuizResultsData(quizResultsData) {
-  const response = await fetch(`http://localhost:4000/api/v1/high-scores`, {
+  const response = await fetch(`${backendUrl}/high-scores`, {
     method: 'POST',
     body: JSON.stringify(quizResultsData),
     headers: {
@@ -48,7 +50,7 @@ export async function sendQuizResultsData(quizResultsData) {
 }
 
 export async function getHighScores({ signal, difficulty }) {
-  const url = `http://localhost:4000/api/v1/high-scores?difficulty=${difficulty}`
+  const url = `${backendUrl}/high-scores?difficulty=${difficulty}`
 
   const response = await fetch(url, { signal })
 
