@@ -216,6 +216,12 @@ a {
   color: #491e19;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ========== Media Queries ========== */
 
 @media (max-width: 1024px) {
