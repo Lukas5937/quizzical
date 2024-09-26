@@ -9,9 +9,7 @@ import HighScoresNavigation from './high-scores/components/HighScoresNavigation.
 import CircularProgress from '@mui/material/CircularProgress'
 
 const QuizGame = lazy(() => import('./quiz/pages/QuizGame'))
-
 const QuizResults = lazy(() => import('./quiz/pages/QuizResults'))
-
 const HighScoresDataEasy = lazy(() =>
   import('./high-scores/pages/HighScoresDataEasy.jsx')
 )
