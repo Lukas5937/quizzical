@@ -9,7 +9,11 @@ export default function HighScoresDataMedium() {
   let content
 
   if (isPending) {
-    content = <CircularProgress className="circular-progress" />
+    content = (
+      <div className="circular-progress-container">
+        <CircularProgress className="circular-progress " />
+      </div>
+    )
   }
 
   if (isError) {

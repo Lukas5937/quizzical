@@ -6,8 +6,9 @@
 }
 
 .answers-container {
-  margin-top: 2em;
+  margin: 2em 0;
   display: grid;
+  justify-items: center;
   grid-template-columns: repeat(2, 1fr);
   gap: 2em 4em;
 }

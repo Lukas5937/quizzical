@@ -203,6 +203,13 @@ a {
   width: 3.5em;
 }
 
+.circular-progress-container {
+  margin: 2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .circular-progress {
   color: var(--font-color) !important;
   width: 1.5em !important;
@@ -214,12 +221,6 @@ a {
   padding: 1em;
   background-color: var(--accent-color-red);
   color: #491e19;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* ========== Media Queries ========== */
@@ -282,6 +283,10 @@ a {
   .symbol-large {
     height: 3em;
     width: 3em;
+  }
+
+  .symbols-container {
+    gap: 2em;
   }
 
   .footer {

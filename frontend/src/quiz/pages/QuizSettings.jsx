@@ -80,7 +80,9 @@ export default function QuizSettings() {
                 />
                 <Button color="accent" size="large">
                   {isPending ? (
-                    <CircularProgress className="circular-progress" />
+                    <div className="circular-progress-container">
+                      <CircularProgress className="circular-progress " />
+                    </div>
                   ) : (
                     'Start game'
                   )}

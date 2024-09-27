@@ -134,7 +134,9 @@ export default function QuizResults() {
                     className="button accent-button"
                   >
                     {isPendingSettings ? (
-                      <CircularProgress className="circular-progress" />
+                      <div className="circular-progress-container">
+                        <CircularProgress className="circular-progress " />
+                      </div>
                     ) : (
                       'Play again'
                     )}
@@ -154,7 +156,11 @@ export default function QuizResults() {
         </AnimatePresence>
       </section>
       {!showIntroText && !isErrorResults && !isErrorSettings && <Footer />}
-      {isLoadingResults && <CircularProgress className="circular-progress" />}
+      {isLoadingResults && (
+        <div className="circular-progress-container">
+          <CircularProgress className="circular-progress " />
+        </div>
+      )}
       {isErrorResults && <ErrorBox error={errorResults} />}
       {isErrorSettings && <ErrorBox error={errorSettings} />}
     </div>

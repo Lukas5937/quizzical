@@ -34,7 +34,9 @@ function App() {
           element: (
             <Suspense
               fallback={
-                <CircularProgress className="circular-progress center" />
+                <div className="circular-progress-container">
+                  <CircularProgress className="circular-progress " />
+                </div>
               }
             >
               <QuizGame />
@@ -46,7 +48,9 @@ function App() {
           element: (
             <Suspense
               fallback={
-                <CircularProgress className="circular-progress center" />
+                <div className="circular-progress-container">
+                  <CircularProgress className="circular-progress " />
+                </div>
               }
             >
               <QuizResults />
@@ -63,7 +67,9 @@ function App() {
               element: (
                 <Suspense
                   fallback={
-                    <CircularProgress className="circular-progress center" />
+                    <div className="circular-progress-container">
+                      <CircularProgress className="circular-progress " />
+                    </div>
                   }
                 >
                   <HighScoresDataEasy />
@@ -75,7 +81,9 @@ function App() {
               element: (
                 <Suspense
                   fallback={
-                    <CircularProgress className="circular-progress center" />
+                    <div className="circular-progress-container">
+                      <CircularProgress className="circular-progress " />
+                    </div>
                   }
                 >
                   <HighScoresDataMedium />
@@ -87,7 +95,9 @@ function App() {
               element: (
                 <Suspense
                   fallback={
-                    <CircularProgress className="circular-progress center" />
+                    <div className="circular-progress-container">
+                      <CircularProgress className="circular-progress " />
+                    </div>
                   }
                 >
                   <HighScoresDataHard />
