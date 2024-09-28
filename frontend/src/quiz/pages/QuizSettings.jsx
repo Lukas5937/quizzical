@@ -78,10 +78,11 @@ export default function QuizSettings() {
                   handleChange={handleChange}
                   formIsInvalid={formIsInvalid}
                 />
-                <Button color="accent" size="large">
+                <Button color="accent">
                   {isPending ? (
-                    <div className="circular-progress-container">
-                      <CircularProgress className="circular-progress " />
+                    <div className="loading-button-container">
+                      <p className="button-text-transparent">Start game</p>
+                      <CircularProgress className="circular-progress absolute" />
                     </div>
                   ) : (
                     'Start game'

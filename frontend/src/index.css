@@ -143,14 +143,25 @@ a {
   background-color: var(--accent-color-red);
 }
 
-.large-button {
-  width: 12em;
-  height: 4em;
-}
-
 .small-button {
   padding: 1.125em 2.25em;
   font-size: 1rem;
+}
+
+.loading-button-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+.button-text-transparent {
+  color: transparent;
+  margin: 0;
 }
 
 /* ========== Footer ========== */

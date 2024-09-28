@@ -134,8 +134,9 @@ export default function QuizResults() {
                     className="button accent-button"
                   >
                     {isPendingSettings ? (
-                      <div className="circular-progress-container">
-                        <CircularProgress className="circular-progress " />
+                      <div className="loading-button-container">
+                        <p className="button-text-transparent">Play again</p>
+                        <CircularProgress className="circular-progress absolute" />
                       </div>
                     ) : (
                       'Play again'

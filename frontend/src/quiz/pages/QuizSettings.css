@@ -83,6 +83,7 @@ fieldset {
 
 .difficulty-buttons-container {
   margin-bottom: 1.25em;
+  max-width: 32em;
 }
 
 .category-button-label-container {

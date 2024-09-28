@@ -11,10 +11,6 @@ export default function Button({ to, answer, color, size, ...props }) {
     cssClasses += ' light-button'
   }
 
-  if (size === 'large') {
-    cssClasses += ' large-button'
-  }
-
   if (size === 'small') {
     cssClasses += ' small-button'
   }
