@@ -7,18 +7,12 @@ import Home from './Home.jsx'
 import QuizSettings from './quiz/pages/QuizSettings'
 import HighScoresNavigation from './high-scores/components/HighScoresNavigation.jsx'
 import CircularProgress from '@mui/material/CircularProgress'
+import HighScoresDataEasy from './high-scores/pages/HighScoresDataEasy.jsx'
+import HighScoresDataMedium from './high-scores/pages/HighScoresDataMedium.jsx'
+import HighScoresDataHard from './high-scores/pages/HighScoresDataHard.jsx'
 
 const QuizGame = lazy(() => import('./quiz/pages/QuizGame'))
 const QuizResults = lazy(() => import('./quiz/pages/QuizResults'))
-const HighScoresDataEasy = lazy(() =>
-  import('./high-scores/pages/HighScoresDataEasy.jsx')
-)
-const HighScoresDataMedium = lazy(() =>
-  import('./high-scores/pages/HighScoresDataMedium.jsx')
-)
-const HighScoresDataHard = lazy(() =>
-  import('./high-scores/pages/HighScoresDataHard.jsx')
-)
 
 function App() {
   const router = createBrowserRouter([
@@ -64,45 +58,15 @@ function App() {
             { path: '', element: <Navigate to="hard" replace /> },
             {
               path: 'easy',
-              element: (
-                <Suspense
-                  fallback={
-                    <div className="circular-progress-container">
-                      <CircularProgress className="circular-progress " />
-                    </div>
-                  }
-                >
-                  <HighScoresDataEasy />
-                </Suspense>
-              ),
+              element: <HighScoresDataEasy />,
             },
             {
               path: 'medium',
-              element: (
-                <Suspense
-                  fallback={
-                    <div className="circular-progress-container">
-                      <CircularProgress className="circular-progress " />
-                    </div>
-                  }
-                >
-                  <HighScoresDataMedium />
-                </Suspense>
-              ),
+              element: <HighScoresDataMedium />,
             },
             {
               path: 'hard',
-              element: (
-                <Suspense
-                  fallback={
-                    <div className="circular-progress-container">
-                      <CircularProgress className="circular-progress " />
-                    </div>
-                  }
-                >
-                  <HighScoresDataHard />
-                </Suspense>
-              ),
+              element: <HighScoresDataHard />,
             },
           ],
         },
