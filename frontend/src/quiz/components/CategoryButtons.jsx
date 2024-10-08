@@ -10,7 +10,7 @@ export default function CategoryButtons({
   settingsData,
   handleChange,
   margin,
-  formIsInvalid,
+  formIsInvalid = false,
 }) {
   return (
     <>
