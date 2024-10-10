@@ -34,7 +34,7 @@ Quizzical ist eine Quiz-Applikation, die es Benutzern ermöglicht, Quizzes in ve
 
 Die App zieht Fragen aus der Open Trivia API, und die Highscore-Daten werden in MongoDB gespeichert. Die Anwendung implementiert auch eine Backend-Formularvalidierung mit express-validator, um sicherzustellen, dass die Benutzereingaben vor der Verarbeitung bestimmten Kriterien entsprechen. Das Frontend wurde mit Netlify und das Backend mit Heroku gehosted.
 
-Sie können die veröffetlichte Version der App hier ausprobieren: [Quizzical - Jetzt Spielen!](https://quizzical-play.netlify.app)
+Sie können die aktuelle Version der App hier ausprobieren: [Quizzical - Jetzt Spielen!](https://quizzical-play.netlify.app)
 
 ### Funktionen
 - spiele Quizzes in mehreren Kategorien: Allgemeinwissen, Wissenschaft + Natur, Sport, Geographie, Geschichte, Tiere
