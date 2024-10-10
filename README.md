@@ -7,8 +7,7 @@ Quizzical is a quiz application that allows users to play quizzes in various cat
 
 The app pulls questions from the Open Trivia API, and highscore data is stored in MongoDB. The application also implements backend form validation with express-validator to ensure that user inputs meet specified criteria before processing. The frontend is deployed on Netlify, and the backend is hosted on Heroku.
 
-You can check out the deployed version of the app here:  
-[Quizzical - Play Now!](https://quizzical-play.netlify.app)
+You can check out the deployed version of the app here: [Quizzical - Play Now!](https://quizzical-play.netlify.app)
 
 ### Features
 - play quizzes across multiple categories: General Knowledge, Science + Nature, Sports, Geography, History, Animals
@@ -33,10 +32,9 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 ### Projektbeschreibung
 Quizzical ist eine Quiz-Applikation, die es Benutzern ermöglicht, Quizzes in verschiedenen Kategorien und Schwierigkeitsgraden zu spielen. Es verfolgt die Highscores für jede Schwierigkeitsstufe und aktualisiert diese in Echtzeit. Dieses Projekt wurde als Single Page Application (SPA) mit React für das Frontend entwickelt, während das Backend mit Express (Node.js) entwickelt wurde.
 
-Die App zieht Fragen aus der Open Trivia API, und die Highscore-Daten werden in MongoDB gespeichert. Die Anwendung implementiert auch eine Backend-Formularvalidierung mit express-validator, um sicherzustellen, dass die Benutzereingaben vor der Verarbeitung bestimmten Kriterien entsprechen. Das Frontend ist auf Netlify bereitgestellt, und das Backend ist auf Heroku gehostet.
+Die App zieht Fragen aus der Open Trivia API, und die Highscore-Daten werden in MongoDB gespeichert. Die Anwendung implementiert auch eine Backend-Formularvalidierung mit express-validator, um sicherzustellen, dass die Benutzereingaben vor der Verarbeitung bestimmten Kriterien entsprechen. Das Frontend wurde mit Netlify und das Backend mit Heroku gehosted.
 
-Sie können die veröffetlichte Version der App hier ausprobieren:  
-[Quizzical - Jetzt Spielen!](https://quizzical-play.netlify.app)
+Sie können die veröffetlichte Version der App hier ausprobieren: [Quizzical - Jetzt Spielen!](https://quizzical-play.netlify.app)
 
 ### Funktionen
 - spiele Quizzes in mehreren Kategorien: Allgemeinwissen, Wissenschaft + Natur, Sport, Geographie, Geschichte, Tiere
