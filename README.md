@@ -9,13 +9,6 @@ The app pulls questions from the Open Trivia API, and highscore data is stored i
 
 The frontend is deployed on Netlify, and the backend is hosted on Heroku. You can check out the deployed version of the app here: [Quizzical - Play Now!](https://quizzical-play.netlify.app)
 
-### Test Account
-A test account is available for users to log in and explore the app. You can use the following credentials to access the application:
-- **Email**: max.mustermann@web.de
-- **Password**: abcdef
-
-Additionally, users also have the option to create their own accounts.
-
 ### Features
 - play quizzes across multiple categories: General Knowledge, Science + Nature, Sports, Geography, History, Animals
 - choose your difficulty level: Easy, Medium, Hard
@@ -42,13 +35,6 @@ Quizzical ist eine Quiz-Applikation, die es Benutzern ermöglicht, Quizzes in ve
 Die App zieht Fragen aus der Open Trivia API, und die Highscore-Daten werden in MongoDB gespeichert. Die Anwendung implementiert auch eine Backend-Formularvalidierung mit express-validator, um sicherzustellen, dass die Benutzereingaben vor der Verarbeitung bestimmten Kriterien entsprechen. 
 
 Das Frontend wurde mit Netlify und das Backend mit Heroku gehosted. Sie können die aktuelle Version der App hier ausprobieren: [Quizzical - Jetzt Spielen!](https://quizzical-play.netlify.app)
-
-### Test-Account
-Ein Test-Account steht zur Verfügung, damit Benutzer sich anmelden und die App erkunden können. Sie können die folgenden Anmeldedaten verwenden, um sich einzuloggen:
-- **E-Mail**: max.mustermann@web.de
-- **Passwort**: abcdef
-
-Darüber hinaus haben Benutzer die Möglichkeit, eigene Konten zu erstellen.
 
 ### Funktionen
 - spiele Quizzes in mehreren Kategorien: Allgemeinwissen, Wissenschaft + Natur, Sport, Geographie, Geschichte, Tiere
